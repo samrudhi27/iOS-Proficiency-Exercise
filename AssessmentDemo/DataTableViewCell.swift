@@ -22,6 +22,18 @@ class DataTableViewCell: UITableViewCell {
                     // swiftlint:enable force_cast
                     ///print(dat)
                     //nameLabel.text = imag
+                    
+                        // swiftlint:enable force_cast
+                        let dataUrl = URL(string: imag)!
+                        let dat = NSData(contentsOf: dataUrl )
+                    if (dat != nil){
+                        profileImageView.image = UIImage(data: dat! as Data)
+                        // swiftlint:enable force_cast
+                    }
+                    
+                    else{
+                        print("No Image")
+                    }
                 }
                 if let name = dataItem.title {
             
@@ -44,19 +56,23 @@ class DataTableViewCell: UITableViewCell {
      }()
     let nameLabel: UILabel = {
             let label = UILabel()
-            label.font = UIFont.boldSystemFont(ofSize: 20)
+            label.font = UIFont.boldSystemFont(ofSize: 15)
            // label.textColor =  colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             label.translatesAutoresizingMaskIntoConstraints = false
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.numberOfLines = 0
             return label
     }()
     let jobTitleDetailedLabel: UILabel = {
       let label = UILabel()
-      label.font = UIFont.boldSystemFont(ofSize: 14)
+      label.font = UIFont.boldSystemFont(ofSize: 10)
       //label.textColor =  colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
      // label.backgroundColor =  colorLiteral(red: 0.2431372549, green: 0.7647058824, blue: 0.8392156863, alpha: 1)
-      label.layer.cornerRadius = 5
-      label.clipsToBounds = true
+      // label.layer.cornerRadius = 5
+      // label.clipsToBounds = true
       label.translatesAutoresizingMaskIntoConstraints = false
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.numberOfLines = 0
        return label
     }()
     let containerView: UIView = {
@@ -79,7 +95,7 @@ class DataTableViewCell: UITableViewCell {
         containerView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         containerView.leadingAnchor.constraint(equalTo: self.profileImageView.trailingAnchor, constant:10).isActive = true
         containerView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant:-10).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant:40).isActive = true
+        containerView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         nameLabel.topAnchor.constraint(equalTo: self.containerView.topAnchor).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor).isActive = true

@@ -33,8 +33,12 @@ class DemoTableViewController: UIViewController {
         dataTableView.dataSource = self
         dataTableView.delegate = self
         pinTableView()
+        dataTableView.rowHeight = UITableView.automaticDimension
+        dataTableView.estimatedRowHeight = 600
         dataTableView.register(DataTableViewCell.self, forCellReuseIdentifier: "contactCell")
         view.backgroundColor = .red
+        
+
     }
 
     func setUpNavigation() {
@@ -44,14 +48,14 @@ class DemoTableViewController: UIViewController {
 
 extension DemoTableViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(self.dta?.count ?? 0)
+        //print(self.dta?.count ?? 0)
         return self.dta?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // swiftlint:disable force_cast
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! DataTableViewCell
         // swiftlint:enable force_cast
-        print(self.dta?[indexPath.row])
+        //print(self.dta?[indexPath.row])
         cell.datas = self.dta?[indexPath.row]
       // .textLabel?.text = contacts[indexPath.row].name
      return cell
