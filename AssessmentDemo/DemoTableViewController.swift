@@ -33,12 +33,9 @@ class DemoTableViewController: UIViewController {
         dataTableView.dataSource = self
         dataTableView.delegate = self
         pinTableView()
-        dataTableView.rowHeight = UITableView.automaticDimension
-        dataTableView.estimatedRowHeight = 600
-        dataTableView.register(DataTableViewCell.self, forCellReuseIdentifier: "contactCell")
+        dataTableView.backgroundColor = .blue
+        configureTableView()
         view.backgroundColor = .red
-        
-
     }
 
     func setUpNavigation() {
@@ -59,10 +56,7 @@ extension DemoTableViewController: UITableViewDataSource, UITableViewDelegate {
         cell.datas = self.dta?[indexPath.row]
       // .textLabel?.text = contacts[indexPath.row].name
      return cell
-    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return 100
-    }
+ }
 }
 extension DemoTableViewController {
     func pinTableView() {
@@ -71,5 +65,10 @@ extension DemoTableViewController {
         dataTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         dataTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         dataTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+         }
+    func configureTableView() {
+        dataTableView.estimatedRowHeight = 600
+        dataTableView.rowHeight = UITableView.automaticDimension
+        dataTableView.register(DataTableViewCell.self, forCellReuseIdentifier: "contactCell")
     }
 }
