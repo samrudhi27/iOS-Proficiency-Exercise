@@ -15,55 +15,57 @@ import UIKit
 
 class DemoTableViewController: UIViewController {
     let dataTableView = UITableView()
-    private let contacts = DataApi.getContacts() // model
-    
-
+    // private let contacts = DataApi.getContacts()
+    var dta: [DataFile]?
+    let dataResource: DataResource = DataResource()
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataResource.getData {(dataResponses) in
+            if(dataResponses?.rows !=  nil) {
+                self.dta = dataResponses?.rows
+                DispatchQueue.main.async {
+                    self.dataTableView.reloadData()
+                }
+            }
+        }
         setUpNavigation()
         view.addSubview(dataTableView)
-        
         dataTableView.dataSource = self
         dataTableView.delegate = self
-        dataTableView.translatesAutoresizingMaskIntoConstraints = false
-       dataTableView.topAnchor.constraint(equalTo:view.topAnchor).isActive = true
-        dataTableView.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
-        dataTableView.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
-        dataTableView.bottomAnchor.constraint(equalTo:view.bottomAnchor).isActive = true
-        
-        
+        pinTableView()
         dataTableView.register(DataTableViewCell.self, forCellReuseIdentifier: "contactCell")
         view.backgroundColor = .red
     }
 
     func setUpNavigation() {
      navigationItem.title = "Contacts"
-     
     }
-   
-
-
 }
 
-extension DemoTableViewController: UITableViewDataSource, UITableViewDelegate{
+extension DemoTableViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(contacts.count)
-        return contacts.count
+        print(self.dta?.count ?? 0)
+        return self.dta?.count ?? 0
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! DataTableViewCell
-        print(contacts[indexPath.row].name)
-        cell.datas = contacts[indexPath.row]
-      //.textLabel?.text = contacts[indexPath.row].name
-      return cell
-       
+        // swiftlint:disable force_cast
+        let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! DataTableViewCell
+        // swiftlint:enable force_cast
+        print(self.dta?[indexPath.row])
+        cell.datas = self.dta?[indexPath.row]
+      // .textLabel?.text = contacts[indexPath.row].name
+     return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
        return 100
     }
-    
-    
-    
 }
-
+extension DemoTableViewController {
+    func pinTableView() {
+        dataTableView.translatesAutoresizingMaskIntoConstraints = false
+       dataTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        dataTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        dataTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        dataTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+}

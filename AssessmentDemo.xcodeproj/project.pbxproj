@@ -18,12 +18,13 @@
 		D3F334D9274B768C00748E71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334D8274B768C00748E71 /* Constants.swift */; };
 		D3F334DB274B780F00748E71 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334DA274B780F00748E71 /* UIView+Ext.swift */; };
 		D3F334DE274B791A00748E71 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334DD274B791900748E71 /* Video.swift */; };
-		D3F334E3274B85B100748E71 /* VideoListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334E2274B85B100748E71 /* VideoListVC.swift */; };
-		D3F334E5274B884D00748E71 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334E4274B884D00748E71 /* VideoCell.swift */; };
-		D3F334EA274BBBA400748E71 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334E9274BBBA400748E71 /* Data.swift */; };
 		D3F334EC274BBBC400748E71 /* DataApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334EB274BBBC400748E71 /* DataApi.swift */; };
 		D3F334EE274BC5A700748E71 /* DemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334ED274BC5A700748E71 /* DemoTableViewController.swift */; };
 		D3F334F2274BC83200748E71 /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334F1274BC83200748E71 /* DataTableViewCell.swift */; };
+		D3F334F6274C9DDA00748E71 /* DataResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334F5274C9DDA00748E71 /* DataResource.swift */; };
+		D3F334F9274CA08500748E71 /* DataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334F8274CA08500748E71 /* DataResponse.swift */; };
+		D3F334FB274CA79500748E71 /* LazyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334FA274CA79500748E71 /* LazyImageView.swift */; };
+		D3F334FF274CE00B00748E71 /* DataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334FE274CE00B00748E71 /* DataFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,12 +62,13 @@
 		D3F334D8274B768C00748E71 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D3F334DA274B780F00748E71 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		D3F334DD274B791900748E71 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
-		D3F334E2274B85B100748E71 /* VideoListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListVC.swift; sourceTree = "<group>"; };
-		D3F334E4274B884D00748E71 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
-		D3F334E9274BBBA400748E71 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		D3F334EB274BBBC400748E71 /* DataApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataApi.swift; sourceTree = "<group>"; };
 		D3F334ED274BC5A700748E71 /* DemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableViewController.swift; sourceTree = "<group>"; };
 		D3F334F1274BC83200748E71 /* DataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
+		D3F334F5274C9DDA00748E71 /* DataResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResource.swift; sourceTree = "<group>"; };
+		D3F334F8274CA08500748E71 /* DataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponse.swift; sourceTree = "<group>"; };
+		D3F334FA274CA79500748E71 /* LazyImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyImageView.swift; sourceTree = "<group>"; };
+		D3F334FE274CE00B00748E71 /* DataFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,8 @@
 		D3F334A1274B74D300748E71 /* AssessmentDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D3F334F7274CA06E00748E71 /* Models */,
+				D3F334F4274C9DB500748E71 /* ResourceAccessor */,
 				D3F334E8274BBA1100748E71 /* not use */,
 				D3F334DF274B7ABD00748E71 /* Supporting */,
 				D3F334DC274B790600748E71 /* Model */,
@@ -126,6 +130,7 @@
 				D3F334AB274B74D300748E71 /* AssessmentDemo.xcdatamodeld */,
 				D3F334ED274BC5A700748E71 /* DemoTableViewController.swift */,
 				D3F334F1274BC83200748E71 /* DataTableViewCell.swift */,
+				D3F334FA274CA79500748E71 /* LazyImageView.swift */,
 			);
 			path = AssessmentDemo;
 			sourceTree = "<group>";
@@ -161,8 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				D3F334DD274B791900748E71 /* Video.swift */,
-				D3F334E9274BBBA400748E71 /* Data.swift */,
 				D3F334EB274BBBC400748E71 /* DataApi.swift */,
+				D3F334FE274CE00B00748E71 /* DataFile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,10 +186,24 @@
 		D3F334E8274BBA1100748E71 /* not use */ = {
 			isa = PBXGroup;
 			children = (
-				D3F334E4274B884D00748E71 /* VideoCell.swift */,
-				D3F334E2274B85B100748E71 /* VideoListVC.swift */,
 			);
 			path = "not use";
+			sourceTree = "<group>";
+		};
+		D3F334F4274C9DB500748E71 /* ResourceAccessor */ = {
+			isa = PBXGroup;
+			children = (
+				D3F334F5274C9DDA00748E71 /* DataResource.swift */,
+			);
+			path = ResourceAccessor;
+			sourceTree = "<group>";
+		};
+		D3F334F7274CA06E00748E71 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D3F334F8274CA08500748E71 /* DataResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3F334CC274B74D600748E71 /* Build configuration list for PBXNativeTarget "AssessmentDemo" */;
 			buildPhases = (
+				D3F334F3274C012600748E71 /* ShellScript */,
 				D3F3349B274B74D300748E71 /* Sources */,
 				D3F3349C274B74D300748E71 /* Frameworks */,
 				D3F3349D274B74D300748E71 /* Resources */,
@@ -312,14 +332,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D3F334F3274C012600748E71 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D3F3349B274B74D300748E71 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D3F334D9274B768C00748E71 /* Constants.swift in Sources */,
-				D3F334EA274BBBA400748E71 /* Data.swift in Sources */,
-				D3F334E5274B884D00748E71 /* VideoCell.swift in Sources */,
+				D3F334FB274CA79500748E71 /* LazyImageView.swift in Sources */,
 				D3F334EE274BC5A700748E71 /* DemoTableViewController.swift in Sources */,
 				D3F334DB274B780F00748E71 /* UIView+Ext.swift in Sources */,
 				D3F334EC274BBBC400748E71 /* DataApi.swift in Sources */,
@@ -327,8 +366,10 @@
 				D3F334F2274BC83200748E71 /* DataTableViewCell.swift in Sources */,
 				D3F334AD274B74D300748E71 /* AssessmentDemo.xcdatamodeld in Sources */,
 				D3F334DE274B791A00748E71 /* Video.swift in Sources */,
+				D3F334F9274CA08500748E71 /* DataResponse.swift in Sources */,
+				D3F334FF274CE00B00748E71 /* DataFile.swift in Sources */,
+				D3F334F6274C9DDA00748E71 /* DataResource.swift in Sources */,
 				D3F334A5274B74D300748E71 /* SceneDelegate.swift in Sources */,
-				D3F334E3274B85B100748E71 /* VideoListVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

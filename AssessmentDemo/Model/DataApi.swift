@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+/*
 class DataApi {
  static func getContacts() -> [Data]{
    let contacts = [
@@ -23,3 +23,4 @@ class DataApi {
    return contacts
   }
 }
+*/
