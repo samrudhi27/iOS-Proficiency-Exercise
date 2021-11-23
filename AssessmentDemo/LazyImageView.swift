@@ -7,9 +7,7 @@
 
 import UIKit
 
-class LazyImageView: UIImageView
-{
-
+class LazyImageView: UIImageView {
     private let imageCache = NSCache<AnyObject, UIImage>()
 
     func loadImage(fromURL imageURL: URL, placeHolderImage: String) {

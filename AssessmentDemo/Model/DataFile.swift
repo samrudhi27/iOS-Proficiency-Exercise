@@ -8,9 +8,9 @@
 import Foundation
 
 struct DataFile: Codable {
-    var title: Optional<String>
-    var imageHref: Optional<String>
-    var description: Optional<String>
+    var title: String?
+    var imageHref: String?
+    var description: String?
     /*enum CodingKeys: String, CodingKey {
         case title = "title"
         case description = "description"

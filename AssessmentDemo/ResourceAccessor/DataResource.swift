@@ -16,11 +16,9 @@ struct DataResource {
             guard let data = data else { return }
                    guard let string = String(data: data, encoding: String.Encoding.isoLatin1) else { return }
                     guard let properData = string.data(using: .utf8, allowLossyConversion: true) else { return }
-            if(error == nil && data != nil) {
+            if error == nil && data != nil {
                 do {
                     let resultJson = try JSONDecoder().decode(DataResponse.self, from: properData)
-                  
-
                     completionHandler(resultJson)
 
                 } catch let error {
@@ -30,6 +28,4 @@ struct DataResource {
 
         }.resume()
  }
-   
-    
 }

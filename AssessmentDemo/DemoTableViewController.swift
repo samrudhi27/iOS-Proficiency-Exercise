@@ -17,44 +17,42 @@ class DemoTableViewController: UIViewController {
     let dataTableView = UITableView()
     // private let contacts = DataApi.getContacts()
     var dta: [DataFile]?
+    var tit: String = ""
     let dataResource: DataResource = DataResource()
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataResource.getData {(dataResponses) in
-            if(dataResponses?.rows !=  nil) {
+        dataResource.getData { [self](dataResponses) in
+            if dataResponses?.rows !=  nil {
                 self.dta = dataResponses?.rows
+                self.tit = dataResponses!.title
+                print("\(self.tit) in handler")
                 DispatchQueue.main.async {
                     self.dataTableView.reloadData()
+                    navigationItem.title = "\(tit)"
                 }
             }
         }
-        setUpNavigation()
         view.addSubview(dataTableView)
         dataTableView.dataSource = self
         dataTableView.delegate = self
         pinTableView()
-        dataTableView.backgroundColor = .blue
+        dataTableView.backgroundColor = .gray
         configureTableView()
         view.backgroundColor = .red
-    }
 
-    func setUpNavigation() {
-     navigationItem.title = "Contacts"
     }
 }
 
 extension DemoTableViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //print(self.dta?.count ?? 0)
+        // print(self.dta?.count ?? 0)
         return self.dta?.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // swiftlint:disable force_cast
-        let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as! DataTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! DataTableViewCell
         // swiftlint:enable force_cast
-        //print(self.dta?[indexPath.row])
         cell.datas = self.dta?[indexPath.row]
-      // .textLabel?.text = contacts[indexPath.row].name
      return cell
  }
 }
@@ -69,6 +67,6 @@ extension DemoTableViewController {
     func configureTableView() {
         dataTableView.estimatedRowHeight = 600
         dataTableView.rowHeight = UITableView.automaticDimension
-        dataTableView.register(DataTableViewCell.self, forCellReuseIdentifier: "contactCell")
+        dataTableView.register(DataTableViewCell.self, forCellReuseIdentifier: "dataCell")
     }
 }

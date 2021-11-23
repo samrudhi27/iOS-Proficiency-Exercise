@@ -8,35 +8,27 @@
 import UIKit
 
 class DataTableViewCell: UITableViewCell {
-
     var datas: DataFile? {
         didSet {
                 guard let dataItem = datas else {return}
                 if let imag = dataItem.imageHref {
-                    // let dataImageUrl = URL(string: imag)!
-                    // var dat = NSData(contentsOf: dataImageUrl)
-                   /// let dataUrl = URL(string: imag)!
-                    // swiftlint:disable force_cast
-                  ///  let dat = NSData(contentsOf: dataUrl as! URL)
-                   /// profileImageView.image = UIImage(data: dat as! Data)
-                    // swiftlint:enable force_cast
-                    ///print(dat)
-                    //nameLabel.text = imag
-                    
-                        // swiftlint:enable force_cast
+                   // let dataUrl = URL(string: imag)!
+                  // let dat = NSData(contentsOf: dataUrl as! URL)
+                   // profileImageView.image = UIImage(data: dat as! Data)
+                    // print(dat)
+                    // nameLabel.text = imag
+                        // swiftlint:disable force_cast
                         let dataUrl = URL(string: imag)!
                         let dat = NSData(contentsOf: dataUrl )
-                    if (dat != nil){
+                    if dat != nil {
                         profileImageView.image = UIImage(data: dat! as Data)
                         // swiftlint:enable force_cast
                     }
-                    
-                    else{
+                    else {
                         print("No Image")
                     }
                 }
                 if let name = dataItem.title {
-            
                    nameLabel.text = " \(name) "
                 }
             if  let des = dataItem.description {
@@ -45,23 +37,22 @@ class DataTableViewCell: UITableViewCell {
         }
         }
     var profileImageView: LazyImageView = {
-                    let img = LazyImageView()
-             img.contentMode = .scaleAspectFill
+        let img = LazyImageView()
+        img.contentMode = .scaleAspectFill
         // image will never be strecthed vertially or horizontally
-             img.translatesAutoresizingMaskIntoConstraints = false
+        img.translatesAutoresizingMaskIntoConstraints = false
         // enable autolayout
-             img.layer.cornerRadius = 35
-           img.clipsToBounds = true
-            return img
-     }()
+        img.layer.cornerRadius = 35
+        img.clipsToBounds = true
+        return img
+    }()
     let nameLabel: UILabel = {
-            let label = UILabel()
-            label.font = UIFont.boldSystemFont(ofSize: 20)
-           // label.textColor =  colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-            label.translatesAutoresizingMaskIntoConstraints = false
+        let label = UILabel()
+            label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.numberOfLines = 0
-            return label
+        return label
     }()
     let jobTitleDetailedLabel: UILabel = {
       let label = UILabel()
@@ -80,35 +71,39 @@ class DataTableViewCell: UITableViewCell {
       return view
     }()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-            super.init(style: style, reuseIdentifier:  reuseIdentifier)
-        let marginGuide = contentView.layoutMarginsGuide
-       // let marginGuide = containerView.layoutMarginsGuide
-        self.contentView.addSubview(profileImageView)
-        //containerView.addSubview(nameLabel)
-        //containerView.addSubview(jobTitleDetailedLabel)
-        self.contentView.addSubview(nameLabel)
-        self.contentView.addSubview(jobTitleDetailedLabel)
-        //self.contentView.addSubview(containerView)
-       // self.contentView.addSubview(countryImageView)
-        profileImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
-        profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
-      profileImageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        //containerView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
-        //containerView.leadingAnchor.constraint(equalTo: self.profileImageView.trailingAnchor, constant:10).isActive = true
-      //containerView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant:-10).isActive = true
-        //containerView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        nameLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 1).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
-        jobTitleDetailedLabel.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor).isActive = true
-        jobTitleDetailedLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 10).isActive = true
-       jobTitleDetailedLabel.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
-        jobTitleDetailedLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addingComponents()
+        imageConstraints()
+        titleConstraints()
+        descriptionConstraints()
     }
 
      required init?(coder aDecoder: NSCoder) {
        super.init(coder: aDecoder)
+    }
+    func addingComponents() {
+        self.contentView.addSubview(profileImageView)
+        self.contentView.addSubview(nameLabel)
+        self.contentView.addSubview(jobTitleDetailedLabel)
+    }
+    func imageConstraints() {
+        profileImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+        profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
+      profileImageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
+    }
+    func titleConstraints() {
+        let marginGuide = contentView.layoutMarginsGuide
+        nameLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 1).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+    }
+    func descriptionConstraints() {
+        let marginGuide = contentView.layoutMarginsGuide
+        jobTitleDetailedLabel.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor).isActive = true
+        jobTitleDetailedLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 10).isActive = true
+       jobTitleDetailedLabel.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
+        jobTitleDetailedLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
     }
 
 }

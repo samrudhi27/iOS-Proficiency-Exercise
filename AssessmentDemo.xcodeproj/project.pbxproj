@@ -165,8 +165,6 @@
 		D3F334DC274B790600748E71 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D3F334DD274B791900748E71 /* Video.swift */,
-				D3F334EB274BBBC400748E71 /* DataApi.swift */,
 				D3F334FE274CE00B00748E71 /* DataFile.swift */,
 			);
 			path = Model;
@@ -186,6 +184,8 @@
 		D3F334E8274BBA1100748E71 /* not use */ = {
 			isa = PBXGroup;
 			children = (
+				D3F334DD274B791900748E71 /* Video.swift */,
+				D3F334EB274BBBC400748E71 /* DataApi.swift */,
 			);
 			path = "not use";
 			sourceTree = "<group>";
