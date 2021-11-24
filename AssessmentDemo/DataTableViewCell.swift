@@ -53,9 +53,9 @@ class DataTableViewCell: UITableViewCell {
         let label = UILabel()
             label.font = UIFont.boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.numberOfLines = 0
-        return label
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+    return label
     }()
     // setting appearance attributes for title
     let jobTitleDetailedLabel: UILabel = {
@@ -93,16 +93,19 @@ class DataTableViewCell: UITableViewCell {
     }
     // applying constraints to image view
     func imageConstraints() {
+        let marginGuide = contentView.layoutMarginsGuide
+        profileImageView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
         profileImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
-      profileImageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
+       profileImageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        profileImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor).isActive = true
+       // profileImageView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
     }
     // applying constraints to title label
     func titleConstraints() {
         let marginGuide = contentView.layoutMarginsGuide
         nameLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 1).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 10).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
     }
     // applying constraints to description label

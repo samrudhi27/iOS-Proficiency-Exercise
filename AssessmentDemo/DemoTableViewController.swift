@@ -71,11 +71,11 @@ extension DemoTableViewController {
         dataTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         dataTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
          }
+    // setting the row height and backgroundcolor
     func configureTableView() {
-        // setting the row height and backgroundcolor
         dataTableView.backgroundColor = .gray
-        dataTableView.estimatedRowHeight = 600
         dataTableView.rowHeight = UITableView.automaticDimension
+        dataTableView.estimatedRowHeight = 1000
         dataTableView.register(DataTableViewCell.self, forCellReuseIdentifier: "dataCell")
     }
 }
