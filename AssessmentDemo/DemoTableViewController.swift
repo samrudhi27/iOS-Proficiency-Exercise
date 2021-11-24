@@ -12,13 +12,13 @@
 //
 
 import UIKit
-// MARK: -DemoTableViewController
+// MARK:-DemoTableViewController
 class DemoTableViewController: UIViewController {
     let dataTableView = UITableView()
     var dta: [DataFile]?
     var tit: String = ""
     let dataResource: DataResource = DataResource()
-    // MARK: -ViewDidLoad
+    // MARK:-ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // fetching data
@@ -71,10 +71,10 @@ extension DemoTableViewController {
         dataTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         dataTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         dataTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        dataTableView.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor).isActive = true
-        dataTableView.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        dataTableView.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        dataTableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        dataTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        dataTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        dataTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        dataTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
          }
     // setting the row height and backgroundcolor
     func configureTableView() {

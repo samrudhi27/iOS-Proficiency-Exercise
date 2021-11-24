@@ -19,7 +19,7 @@ class DataTableViewCell: UITableViewCell {
                     // print(dat)
                     // nameLabel.text = imag
                         // swiftlint:disable force_cast
-                        let dataUrl = URL(string: imag)!
+                       /* let dataUrl = URL(string: imag)!
                         let dat = NSData(contentsOf: dataUrl )
                     if dat != nil {
                         profileImageView.image = UIImage(data: dat! as Data)
@@ -27,7 +27,9 @@ class DataTableViewCell: UITableViewCell {
                     }
                     else {
                         print("No Image")
-                    }
+                    }*/
+                    let imgURl = URL(string: imag)!
+                    profileImageView.loadImage(fromURL: imgURl, placeHolderImage: "1")
                 }
                 if let name = dataItem.title {
                    nameLabel.text = " \(name) "
@@ -55,6 +57,7 @@ class DataTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.textAlignment = NSTextAlignment.center
     return label
     }()
     // setting appearance attributes for title
@@ -66,6 +69,7 @@ class DataTableViewCell: UITableViewCell {
       label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.textAlignment = NSTextAlignment.center
         return label
     }()
     let containerView: UIView = {
@@ -94,10 +98,10 @@ class DataTableViewCell: UITableViewCell {
     func imageConstraints() {
         let marginGuide = contentView.layoutMarginsGuide
         profileImageView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
-       profileImageView.centerYAnchor.constraint(equalTo: marginGuide.centerYAnchor).isActive = true
+      // profileImageView.centerYAnchor.constraint(equalTo: marginGuide.centerYAnchor).isActive = true
         profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,constant: 10).isActive = true
        profileImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        profileImageView.heightAnchor.constraint(lessThanOrEqualTo:  contentView.heightAnchor).isActive = true
+        profileImageView.heightAnchor.constraint(lessThanOrEqualTo:  marginGuide.heightAnchor).isActive = true
        profileImageView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
     }
     // applying constraints to title label

@@ -1,6 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "Black on Transparent.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
       "filename" : "Mohammad Hussain.jpg",
       "idiom" : "universal",
       "scale" : "1x"
