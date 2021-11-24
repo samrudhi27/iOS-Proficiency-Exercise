@@ -6,8 +6,9 @@
 //
 
 import UIKit
-
+// MARK: - UIView extension
 extension UIView {
+    // adding the view contraints, pinning it to superview
     func pin(to superview: UIView) {
         translatesAutoresizingMaskIntoConstraints = false
         topAnchor.constraint(equalTo: superview.topAnchor).isActive = true

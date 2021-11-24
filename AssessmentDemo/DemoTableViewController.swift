@@ -12,38 +12,44 @@
 //
 
 import UIKit
-
+// MARK: -DemoTableViewController
 class DemoTableViewController: UIViewController {
     let dataTableView = UITableView()
-    // private let contacts = DataApi.getContacts()
     var dta: [DataFile]?
     var tit: String = ""
     let dataResource: DataResource = DataResource()
+    // MARK: -ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        // fetching data
         dataResource.getData { [self](dataResponses) in
             if dataResponses?.rows !=  nil {
+                // fetching the json rows data
                 self.dta = dataResponses?.rows
+                // fetching the json title
                 self.tit = dataResponses!.title
                 print("\(self.tit) in handler")
+                // setting the navigation title and reloading the data in the main thread
                 DispatchQueue.main.async {
                     self.dataTableView.reloadData()
                     navigationItem.title = "\(tit)"
                 }
             }
         }
+        // adding the tableview to the view
         view.addSubview(dataTableView)
+        // setting the datasource and delegate
         dataTableView.dataSource = self
         dataTableView.delegate = self
+        // pinning the table view to the view(constraints)
         pinTableView()
-        dataTableView.backgroundColor = .gray
+        // configuring the table view, setting height and background color
         configureTableView()
-        view.backgroundColor = .red
-
     }
 }
-
+// MARK: -DemotableViewController extension
 extension DemoTableViewController: UITableViewDataSource, UITableViewDelegate {
+    // setting numbers of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // print(self.dta?.count ?? 0)
         return self.dta?.count ?? 0
@@ -57,6 +63,7 @@ extension DemoTableViewController: UITableViewDataSource, UITableViewDelegate {
  }
 }
 extension DemoTableViewController {
+    // applying constraints to tableview, pinning it to view
     func pinTableView() {
         dataTableView.translatesAutoresizingMaskIntoConstraints = false
        dataTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -65,6 +72,8 @@ extension DemoTableViewController {
         dataTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
          }
     func configureTableView() {
+        // setting the row height and backgroundcolor
+        dataTableView.backgroundColor = .gray
         dataTableView.estimatedRowHeight = 600
         dataTableView.rowHeight = UITableView.automaticDimension
         dataTableView.register(DataTableViewCell.self, forCellReuseIdentifier: "dataCell")

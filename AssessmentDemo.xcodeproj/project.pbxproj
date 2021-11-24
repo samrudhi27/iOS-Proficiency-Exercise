@@ -15,10 +15,7 @@
 		D3F334B2274B74D500748E71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3F334B0274B74D500748E71 /* LaunchScreen.storyboard */; };
 		D3F334BD274B74D600748E71 /* AssessmentDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334BC274B74D600748E71 /* AssessmentDemoTests.swift */; };
 		D3F334C8274B74D600748E71 /* AssessmentDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334C7274B74D600748E71 /* AssessmentDemoUITests.swift */; };
-		D3F334D9274B768C00748E71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334D8274B768C00748E71 /* Constants.swift */; };
 		D3F334DB274B780F00748E71 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334DA274B780F00748E71 /* UIView+Ext.swift */; };
-		D3F334DE274B791A00748E71 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334DD274B791900748E71 /* Video.swift */; };
-		D3F334EC274BBBC400748E71 /* DataApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334EB274BBBC400748E71 /* DataApi.swift */; };
 		D3F334EE274BC5A700748E71 /* DemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334ED274BC5A700748E71 /* DemoTableViewController.swift */; };
 		D3F334F2274BC83200748E71 /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334F1274BC83200748E71 /* DataTableViewCell.swift */; };
 		D3F334F6274C9DDA00748E71 /* DataResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334F5274C9DDA00748E71 /* DataResource.swift */; };
@@ -59,10 +56,7 @@
 		D3F334C3274B74D600748E71 /* AssessmentDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssessmentDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3F334C7274B74D600748E71 /* AssessmentDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentDemoUITests.swift; sourceTree = "<group>"; };
 		D3F334C9274B74D600748E71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D3F334D8274B768C00748E71 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D3F334DA274B780F00748E71 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
-		D3F334DD274B791900748E71 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
-		D3F334EB274BBBC400748E71 /* DataApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataApi.swift; sourceTree = "<group>"; };
 		D3F334ED274BC5A700748E71 /* DemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableViewController.swift; sourceTree = "<group>"; };
 		D3F334F1274BC83200748E71 /* DataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
 		D3F334F5274C9DDA00748E71 /* DataResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResource.swift; sourceTree = "<group>"; };
@@ -121,7 +115,6 @@
 			children = (
 				D3F334F7274CA06E00748E71 /* Models */,
 				D3F334F4274C9DB500748E71 /* ResourceAccessor */,
-				D3F334E8274BBA1100748E71 /* not use */,
 				D3F334DF274B7ABD00748E71 /* Supporting */,
 				D3F334DC274B790600748E71 /* Model */,
 				D3F334D5274B764400748E71 /* Extensions-Utilities */,
@@ -156,7 +149,6 @@
 		D3F334D5274B764400748E71 /* Extensions-Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				D3F334D8274B768C00748E71 /* Constants.swift */,
 				D3F334DA274B780F00748E71 /* UIView+Ext.swift */,
 			);
 			path = "Extensions-Utilities";
@@ -179,15 +171,6 @@
 				D3F334A4274B74D300748E71 /* SceneDelegate.swift */,
 			);
 			path = Supporting;
-			sourceTree = "<group>";
-		};
-		D3F334E8274BBA1100748E71 /* not use */ = {
-			isa = PBXGroup;
-			children = (
-				D3F334DD274B791900748E71 /* Video.swift */,
-				D3F334EB274BBBC400748E71 /* DataApi.swift */,
-			);
-			path = "not use";
 			sourceTree = "<group>";
 		};
 		D3F334F4274C9DB500748E71 /* ResourceAccessor */ = {
@@ -357,15 +340,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3F334D9274B768C00748E71 /* Constants.swift in Sources */,
 				D3F334FB274CA79500748E71 /* LazyImageView.swift in Sources */,
 				D3F334EE274BC5A700748E71 /* DemoTableViewController.swift in Sources */,
 				D3F334DB274B780F00748E71 /* UIView+Ext.swift in Sources */,
-				D3F334EC274BBBC400748E71 /* DataApi.swift in Sources */,
 				D3F334A3274B74D300748E71 /* AppDelegate.swift in Sources */,
 				D3F334F2274BC83200748E71 /* DataTableViewCell.swift in Sources */,
 				D3F334AD274B74D300748E71 /* AssessmentDemo.xcdatamodeld in Sources */,
-				D3F334DE274B791A00748E71 /* Video.swift in Sources */,
 				D3F334F9274CA08500748E71 /* DataResponse.swift in Sources */,
 				D3F334FF274CE00B00748E71 /* DataFile.swift in Sources */,
 				D3F334F6274C9DDA00748E71 /* DataResource.swift in Sources */,

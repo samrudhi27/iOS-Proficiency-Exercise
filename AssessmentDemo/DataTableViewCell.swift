@@ -10,6 +10,7 @@ import UIKit
 class DataTableViewCell: UITableViewCell {
     var datas: DataFile? {
         didSet {
+                // setting image, title and decription to UI elements
                 guard let dataItem = datas else {return}
                 if let imag = dataItem.imageHref {
                    // let dataUrl = URL(string: imag)!
@@ -36,6 +37,7 @@ class DataTableViewCell: UITableViewCell {
             }
         }
         }
+    // setting appearance attributes for ImageView
     var profileImageView: LazyImageView = {
         let img = LazyImageView()
         img.contentMode = .scaleAspectFill
@@ -46,6 +48,7 @@ class DataTableViewCell: UITableViewCell {
         img.clipsToBounds = true
         return img
     }()
+    // setting appearance attributes for titleLabel
     let nameLabel: UILabel = {
         let label = UILabel()
             label.font = UIFont.boldSystemFont(ofSize: 20)
@@ -54,6 +57,7 @@ class DataTableViewCell: UITableViewCell {
         label.numberOfLines = 0
         return label
     }()
+    // setting appearance attributes for title
     let jobTitleDetailedLabel: UILabel = {
       let label = UILabel()
       label.font = UIFont.boldSystemFont(ofSize: 10)
@@ -81,23 +85,27 @@ class DataTableViewCell: UITableViewCell {
      required init?(coder aDecoder: NSCoder) {
        super.init(coder: aDecoder)
     }
+    // adding image, title, description to the content
     func addingComponents() {
         self.contentView.addSubview(profileImageView)
         self.contentView.addSubview(nameLabel)
         self.contentView.addSubview(jobTitleDetailedLabel)
     }
+    // applying constraints to image view
     func imageConstraints() {
         profileImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
       profileImageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
     }
+    // applying constraints to title label
     func titleConstraints() {
         let marginGuide = contentView.layoutMarginsGuide
         nameLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 1).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
     }
+    // applying constraints to description label
     func descriptionConstraints() {
         let marginGuide = contentView.layoutMarginsGuide
         jobTitleDetailedLabel.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor).isActive = true

@@ -7,7 +7,9 @@
 
 import Foundation
 
-public struct DataResponse: Codable{
+// structure to hold json data
+// MARK: - DataResponse
+public struct DataResponse: Codable {
     let rows: [DataFile]
     let title: String
 }
