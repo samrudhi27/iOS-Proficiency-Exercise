@@ -81,9 +81,8 @@ class DataTableViewCell: UITableViewCell {
         titleConstraints()
         descriptionConstraints()
     }
-
-     required init?(coder aDecoder: NSCoder) {
-       super.init(coder: aDecoder)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     // adding image, title, description to the content
     func addingComponents() {
@@ -96,7 +95,7 @@ class DataTableViewCell: UITableViewCell {
         let marginGuide = contentView.layoutMarginsGuide
         profileImageView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
        profileImageView.centerYAnchor.constraint(equalTo: marginGuide.centerYAnchor).isActive = true
-        profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
+        profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,constant: 10).isActive = true
        profileImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         profileImageView.heightAnchor.constraint(lessThanOrEqualTo:  contentView.heightAnchor).isActive = true
        profileImageView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true

@@ -38,6 +38,7 @@ class DemoTableViewController: UIViewController {
         }
         // adding the tableview to the view
         view.addSubview(dataTableView)
+        // view.pin(to: s)
         // setting the datasource and delegate
         dataTableView.dataSource = self
         dataTableView.delegate = self
@@ -70,6 +71,10 @@ extension DemoTableViewController {
         dataTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         dataTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         dataTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        dataTableView.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor).isActive = true
+        dataTableView.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        dataTableView.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        dataTableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor).isActive = true
          }
     // setting the row height and backgroundcolor
     func configureTableView() {
