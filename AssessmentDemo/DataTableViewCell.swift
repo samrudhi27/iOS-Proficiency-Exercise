@@ -29,7 +29,7 @@ class DataTableViewCell: UITableViewCell {
                         print("No Image")
                     }*/
                     let imgURl = URL(string: imag)!
-                    profileImageView.loadImage(fromURL: imgURl, placeHolderImage: "1")
+                    profileImageView.loadImage(fromURL: imgURl, placeHolderImage: "ar")
                 }
                 if let name = dataItem.title {
                    nameLabel.text = " \(name) "
@@ -42,7 +42,7 @@ class DataTableViewCell: UITableViewCell {
     // setting appearance attributes for ImageView
     var profileImageView: LazyImageView = {
         let img = LazyImageView()
-        img.contentMode = .scaleAspectFill
+        img.contentMode = .center
         // image will never be strecthed vertially or horizontally
         img.translatesAutoresizingMaskIntoConstraints = false
         // enable autolayout
@@ -96,28 +96,28 @@ class DataTableViewCell: UITableViewCell {
     }
     // applying constraints to image view
     func imageConstraints() {
-        let marginGuide = contentView.layoutMarginsGuide
-        profileImageView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
-      // profileImageView.centerYAnchor.constraint(equalTo: marginGuide.centerYAnchor).isActive = true
-        profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,constant: 10).isActive = true
-       profileImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        profileImageView.heightAnchor.constraint(lessThanOrEqualTo:  marginGuide.heightAnchor).isActive = true
-       profileImageView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
-    }
-    // applying constraints to title label
-    func titleConstraints() {
-        let marginGuide = contentView.layoutMarginsGuide
-        nameLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 10).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
-    }
-    // applying constraints to description label
-    func descriptionConstraints() {
-        let marginGuide = contentView.layoutMarginsGuide
-        jobTitleDetailedLabel.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor).isActive = true
-        jobTitleDetailedLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 10).isActive = true
-       jobTitleDetailedLabel.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
-        jobTitleDetailedLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
-    }
+            let marginGuide = contentView.layoutMarginsGuide
+            profileImageView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
+          profileImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+            profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,constant: 10).isActive = true
+           profileImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+            profileImageView.heightAnchor.constraint(lessThanOrEqualTo:  contentView.heightAnchor).isActive = true
+           profileImageView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
+        }
+        // applying constraints to title label
+        func titleConstraints() {
+            let marginGuide = contentView.layoutMarginsGuide
+            nameLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
+            nameLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 10).isActive = true
+            nameLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+        }
+        // applying constraints to description label
+        func descriptionConstraints() {
+            let marginGuide = contentView.layoutMarginsGuide
+            jobTitleDetailedLabel.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor).isActive = true
+            jobTitleDetailedLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 10).isActive = true
+           jobTitleDetailedLabel.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
+            jobTitleDetailedLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+        }
 
 }

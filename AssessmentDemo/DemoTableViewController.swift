@@ -12,13 +12,14 @@
 //
 
 import UIKit
-// MARK:-DemoTableViewController
+// MARK: - DemoTableViewController
 class DemoTableViewController: UIViewController {
     let dataTableView = UITableView()
     var dta: [DataFile]?
     var tit: String = ""
     let dataResource: DataResource = DataResource()
-    // MARK:-ViewDidLoad
+    let refreshControl = UIRefreshControl()
+    // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // fetching data
@@ -36,10 +37,13 @@ class DemoTableViewController: UIViewController {
                 }
             }
         }
-        // adding the tableview to the view
         view.addSubview(dataTableView)
-        // view.pin(to: s)
-        // setting the datasource and delegate
+       // dataTableView.addSubview(refreshControl)
+        // refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        // adding the tableview to the view
+        // refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+        // refreshControl.attributedTitle = NSAttributedString(string: "Fetching Data ...")
+ // setting the datasource and delegate
         dataTableView.dataSource = self
         dataTableView.delegate = self
         // pinning the table view to the view(constraints)
@@ -47,8 +51,29 @@ class DemoTableViewController: UIViewController {
         // configuring the table view, setting height and background color
         configureTableView()
     }
+   /* @objc
+    func refreshData(_ sender: Any) {
+        fetchData()
+    }
+    func fetchData() {
+        dataResource.getData { [self](dataResponses) in
+            if dataResponses?.rows !=  nil {
+                // fetching the json rows data
+                self.dta = dataResponses?.rows
+                // fetching the json title
+                self.tit = dataResponses!.title
+                print("\(self.tit) in handler")
+                // setting the navigation title and reloading the data in the main thread
+                DispatchQueue.main.async {
+                    self.dataTableView.reloadData()
+                    navigationItem.title = "\(tit)"
+                }
+            }
+        }
+        refreshControl.endRefreshing()
+    }*/
 }
-// MARK: -DemotableViewController extension
+// MARK: - DemotableViewController extension
 extension DemoTableViewController: UITableViewDataSource, UITableViewDelegate {
     // setting numbers of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
