@@ -95,11 +95,11 @@ class DataTableViewCell: UITableViewCell {
     func imageConstraints() {
         let marginGuide = contentView.layoutMarginsGuide
         profileImageView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
-        profileImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
-        profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10).isActive = true
-       profileImageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        profileImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor).isActive = true
-       // profileImageView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
+       profileImageView.centerYAnchor.constraint(equalTo: marginGuide.centerYAnchor).isActive = true
+        profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
+       profileImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        profileImageView.heightAnchor.constraint(lessThanOrEqualTo:  contentView.heightAnchor).isActive = true
+       profileImageView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
     }
     // applying constraints to title label
     func titleConstraints() {
