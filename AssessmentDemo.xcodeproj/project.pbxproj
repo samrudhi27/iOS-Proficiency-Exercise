@@ -123,7 +123,6 @@
 				D3F334AB274B74D300748E71 /* AssessmentDemo.xcdatamodeld */,
 				D3F334ED274BC5A700748E71 /* DemoTableViewController.swift */,
 				D3F334F1274BC83200748E71 /* DataTableViewCell.swift */,
-				D3F334FA274CA79500748E71 /* LazyImageView.swift */,
 			);
 			path = AssessmentDemo;
 			sourceTree = "<group>";
@@ -157,7 +156,7 @@
 		D3F334DC274B790600748E71 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D3F334FE274CE00B00748E71 /* DataFile.swift */,
+				D3F334FA274CA79500748E71 /* LazyImageView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				D3F334F8274CA08500748E71 /* DataResponse.swift */,
+				D3F334FE274CE00B00748E71 /* DataFile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

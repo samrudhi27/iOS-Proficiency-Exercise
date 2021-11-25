@@ -105,7 +105,7 @@ extension DemoTableViewController {
     func configureTableView() {
         dataTableView.backgroundColor = .gray
         dataTableView.rowHeight = UITableView.automaticDimension
-        dataTableView.estimatedRowHeight = 1000
+        dataTableView.estimatedRowHeight = 100
         dataTableView.register(DataTableViewCell.self, forCellReuseIdentifier: "dataCell")
     }
 }

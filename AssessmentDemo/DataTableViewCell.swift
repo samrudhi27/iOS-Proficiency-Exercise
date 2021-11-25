@@ -1,9 +1,3 @@
-//
-//  DataTableViewCell.swift
-//  AssessmentDemo
-//
-//  Created by Samrudhi Santaji on 22/11/21.
-//
 
 import UIKit
 
@@ -13,21 +7,6 @@ class DataTableViewCell: UITableViewCell {
                 // setting image, title and decription to UI elements
                 guard let dataItem = datas else {return}
                 if let imag = dataItem.imageHref {
-                   // let dataUrl = URL(string: imag)!
-                  // let dat = NSData(contentsOf: dataUrl as! URL)
-                   // profileImageView.image = UIImage(data: dat as! Data)
-                    // print(dat)
-                    // nameLabel.text = imag
-                        // swiftlint:disable force_cast
-                       /* let dataUrl = URL(string: imag)!
-                        let dat = NSData(contentsOf: dataUrl )
-                    if dat != nil {
-                        profileImageView.image = UIImage(data: dat! as Data)
-                        // swiftlint:enable force_cast
-                    }
-                    else {
-                        print("No Image")
-                    }*/
                     let imgURl = URL(string: imag)!
                     profileImageView.loadImage(fromURL: imgURl, placeHolderImage: "ar")
                 }
@@ -72,12 +51,6 @@ class DataTableViewCell: UITableViewCell {
         label.textAlignment = NSTextAlignment.center
         return label
     }()
-    let containerView: UIView = {
-      let view = UIView()
-      view.translatesAutoresizingMaskIntoConstraints = false
-      view.clipsToBounds = true // this will make sure its children do not go out of the boundary
-      return view
-    }()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addingComponents()
@@ -119,5 +92,4 @@ class DataTableViewCell: UITableViewCell {
            jobTitleDetailedLabel.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
             jobTitleDetailedLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
         }
-
 }
