@@ -14,8 +14,6 @@ class AssessmentDemoTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         try super.setUpWithError()
         sut = URLSession(configuration: .default)
-        // swiftlint:disable force_cast
-        // swiftlint:enable force_cast
     }
 
     override func tearDownWithError() throws {

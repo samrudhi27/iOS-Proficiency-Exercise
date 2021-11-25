@@ -1,4 +1,3 @@
-
 import UIKit
 
 class DataTableViewCell: UITableViewCell {
@@ -74,7 +73,7 @@ class DataTableViewCell: UITableViewCell {
           profileImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
             profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,constant: 10).isActive = true
            profileImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-            profileImageView.heightAnchor.constraint(lessThanOrEqualTo:  contentView.heightAnchor).isActive = true
+            profileImageView.heightAnchor.constraint(lessThanOrEqualTo:   contentView.heightAnchor).isActive = true
            profileImageView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
         }
         // applying constraints to title label
@@ -87,7 +86,7 @@ class DataTableViewCell: UITableViewCell {
         // applying constraints to description label
         func descriptionConstraints() {
             let marginGuide = contentView.layoutMarginsGuide
-            jobTitleDetailedLabel.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor).isActive = true
+            jobTitleDetailedLabel.topAnchor.constraint(equalTo: self.nameLabel.bottomAnchor, constant: 10).isActive = true
             jobTitleDetailedLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 10).isActive = true
            jobTitleDetailedLabel.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
             jobTitleDetailedLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
