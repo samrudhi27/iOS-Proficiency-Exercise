@@ -9,51 +9,41 @@ import UIKit
 import SnapKit
 
 class DataTableViewCell: UITableViewCell {
-    var sam = "Samrudhi"
     var datas: DataFile? {
         didSet{
             guard let dataItem = datas else {return}
-            if let imag = dataItem.imageHref{
-                //print(imag)
-               // print(sam)
-                /* do{  artistImgView.image = try UIImage(data: Data(contentsOf: URL(string: imag)!))
-                }
-                catch{
-                    
-                }*/
-               
-                    let urll = URL(string: imag)
-                    if let data = try? Data(contentsOf: urll!){
-                       //print(data)
-                        dataImgView.image = UIImage(data: data)
-                    }
+            if let imag = dataItem.imageHref {
+                    let imageHrefUrl = URL(string: imag)
+                if let data = try? Data(contentsOf: imageHrefUrl!) {
+                        dataImageView.image = UIImage(data: data)
+                    }/*
+ let imageHrefUrl = URL(string: imag)!
+                dataImageView.loadImage(fromURL: imageHrefUrl, placeHolderImage: "as")*/
             }
-            if let track = dataItem.description{
-             //   print("track \(track)")
-                descriptionLabel.text = "\(track)"
+            if let descriptionData = dataItem.description {
+                descriptionLabel.text = "\(descriptionData)"
             }
-            if let artis = dataItem.title{
-                dataTitle.text = "\(artis)"
+            if let titleData = dataItem.title {
+                dataTitle.text = "\(titleData)"
             }
         }
     }
-    
-
     var descriptionLabel: UILabel = {
         let label = UILabel()
-            label.font = UIFont.boldSystemFont(ofSize: 10)
+        label.font = UIFont.boldSystemFont(ofSize: 10)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.textAlignment = NSTextAlignment.center
     return label
     }()
-    var dataImgView: UIImageView = {
+    var dataImageView: UIImageView = {
         let img = UIImageView()
         img.contentMode = .center
         // image will never be strecthed vertially or horizontally
         img.translatesAutoresizingMaskIntoConstraints = false
         // enable autolayout
+        //img.contentMode = .scaleAspectFit
         img.layer.cornerRadius = 35
         img.clipsToBounds = true
         return img
@@ -61,17 +51,7 @@ class DataTableViewCell: UITableViewCell {
           
          var dataTitle: UILabel = {
             let label = UILabel()
-                label.font = UIFont.boldSystemFont(ofSize: 20)
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.numberOfLines = 0
-            label.lineBreakMode = NSLineBreakMode.byWordWrapping
-            label.textAlignment = NSTextAlignment.center
-        return label
-        }()
-    
-        var artistCountry: UILabel = {
-            let label = UILabel()
-                label.font = UIFont.boldSystemFont(ofSize: 20)
+            label.font = UIFont.boldSystemFont(ofSize: 20)
             label.translatesAutoresizingMaskIntoConstraints = false
             label.numberOfLines = 0
             label.lineBreakMode = NSLineBreakMode.byWordWrapping
@@ -91,13 +71,12 @@ class DataTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     func addingComponents(){
-        self.contentView.addSubview(dataImgView)
+        self.contentView.addSubview(dataImageView)
         self.contentView.addSubview(dataTitle)
-       // self.contentView.addSubview(artistCountry)
         self.contentView.addSubview(descriptionLabel)
     }
     func imageConstraints() {
-        dataImgView.snp.makeConstraints{
+        dataImageView.snp.makeConstraints{
             make in
             make.top.equalToSuperview().offset(10)
             make.leading.equalToSuperview().offset(10)
@@ -114,7 +93,7 @@ class DataTableViewCell: UITableViewCell {
             dataTitle.snp.makeConstraints{
                 make in
                 make.top.equalToSuperview().offset(10)
-                make.leading.equalTo(dataImgView.snp.trailing).offset(10)
+                make.leading.equalTo(dataImageView.snp.trailing).offset(10)
                 make.trailing.equalToSuperview().offset(-10)
             }
         }
@@ -123,7 +102,7 @@ class DataTableViewCell: UITableViewCell {
             descriptionLabel.snp.makeConstraints{
                 make in
                 make.top.equalTo(dataTitle.snp.bottom)
-                make.leading.equalTo(dataImgView.snp.trailing).offset(10)
+                make.leading.equalTo(dataImageView.snp.trailing).offset(10)
                 make.trailing.equalToSuperview().offset(-10)
                 make.bottom.equalToSuperview().offset(-10)
             }
