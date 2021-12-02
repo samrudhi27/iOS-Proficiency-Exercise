@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class DataTableViewCell: UITableViewCell {
     var sam = "Samrudhi"
@@ -96,29 +97,36 @@ class DataTableViewCell: UITableViewCell {
         self.contentView.addSubview(descriptionLabel)
     }
     func imageConstraints() {
-            let marginGuide = contentView.layoutMarginsGuide
-        dataImgView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
-        dataImgView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        dataImgView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,constant: 10).isActive = true
-        dataImgView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        dataImgView.heightAnchor.constraint(lessThanOrEqualTo: contentView.heightAnchor).isActive = true
-        dataImgView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
+        dataImgView.snp.makeConstraints{
+            make in
+            make.top.equalToSuperview().offset(10)
+            make.leading.equalToSuperview().offset(10)
+            make.bottom.equalToSuperview().offset(-10)
+            make.width.equalTo(100)
+            //make.height.equalTo(100)
+            make.height.lessThanOrEqualToSuperview()
+            make.centerY.equalToSuperview()
+            
         }
+    }
         // applying constraints to title label
         func titleConstraints() {
-            let marginGuide = contentView.layoutMarginsGuide
-            dataTitle.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
-            dataTitle.leadingAnchor.constraint(equalTo: dataImgView.trailingAnchor, constant: 10).isActive = true
-            dataTitle.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+            dataTitle.snp.makeConstraints{
+                make in
+                make.top.equalToSuperview().offset(10)
+                make.leading.equalTo(dataImgView.snp.trailing).offset(10)
+                make.trailing.equalToSuperview().offset(-10)
+            }
         }
         // applying constraints to description label
         func descriptionConstraints() {
-            let marginGuide = contentView.layoutMarginsGuide
-            descriptionLabel.topAnchor.constraint(equalTo: self.dataTitle.bottomAnchor, constant: 10).isActive = true
-            
-            descriptionLabel.leadingAnchor.constraint(equalTo: dataImgView.trailingAnchor, constant: 10).isActive = true
-            descriptionLabel.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
-            descriptionLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+            descriptionLabel.snp.makeConstraints{
+                make in
+                make.top.equalTo(dataTitle.snp.bottom)
+                make.leading.equalTo(dataImgView.snp.trailing).offset(10)
+                make.trailing.equalToSuperview().offset(-10)
+                make.bottom.equalToSuperview().offset(-10)
+            }
         }
 
 }

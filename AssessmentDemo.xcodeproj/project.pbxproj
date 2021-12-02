@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D3D09EAD2756168C006897A8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D09EAC2756168C006897A8 /* Alamofire.framework */; };
+		D3D09F0F2758D635006897A8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D09F0E2758D635006897A8 /* Alamofire.framework */; };
+		D3D09F132758D63A006897A8 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D09F122758D63A006897A8 /* SnapKit.framework */; };
 		D3F334A3274B74D300748E71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334A2274B74D300748E71 /* AppDelegate.swift */; };
 		D3F334A5274B74D300748E71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334A4274B74D300748E71 /* SceneDelegate.swift */; };
 		D3F334AD274B74D300748E71 /* AssessmentDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3F334AB274B74D300748E71 /* AssessmentDemo.xcdatamodeld */; };
@@ -41,7 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D3D09EAC2756168C006897A8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		D3D09F0E2758D635006897A8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		D3D09F122758D63A006897A8 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		D3F3349F274B74D300748E71 /* AssessmentDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssessmentDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3F334A2274B74D300748E71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3F334A4274B74D300748E71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3D09EAD2756168C006897A8 /* Alamofire.framework in Frameworks */,
+				D3D09F0F2758D635006897A8 /* Alamofire.framework in Frameworks */,
+				D3D09F132758D63A006897A8 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,10 +92,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D3D09EAB2756168C006897A8 /* Frameworks */ = {
+		D3D09F0D2758D634006897A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D3D09EAC2756168C006897A8 /* Alamofire.framework */,
+				D3D09F122758D63A006897A8 /* SnapKit.framework */,
+				D3D09F0E2758D635006897A8 /* Alamofire.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -104,7 +108,7 @@
 				D3F334BB274B74D600748E71 /* AssessmentDemoTests */,
 				D3F334C6274B74D600748E71 /* AssessmentDemoUITests */,
 				D3F334A0274B74D300748E71 /* Products */,
-				D3D09EAB2756168C006897A8 /* Frameworks */,
+				D3D09F0D2758D634006897A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -322,6 +326,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
 			outputFileListPaths = (

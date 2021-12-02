@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import SnapKit
 
 class DemoTableViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
@@ -85,11 +86,15 @@ extension DemoTableViewController {
     // applying constraints to tableview, pinning it to view
     func pinTableView() {
         dataTableView.translatesAutoresizingMaskIntoConstraints = false
-       dataTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        dataTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        dataTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        dataTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        dataTableView.snp.makeConstraints{
+            make in
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
         dataTableView.addSubview(refreshControl)
+ 
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching Data ...")
