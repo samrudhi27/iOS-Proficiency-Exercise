@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 class DemoTableViewController: UIViewController {
-
+    private let refreshControl = UIRefreshControl()
     var tableData = Array<DataFile>()
     var navTitle : String = ""
     var dataTableView = UITableView()
@@ -23,12 +23,12 @@ class DemoTableViewController: UIViewController {
         configureTableView()
         
         view.backgroundColor = .red
-      loadJsonData()
+      //loadJsonData()
     }
     func loadJsonData()
         {
         let dataApiUrl = URL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json")!
-           Alamofire.request(dataApiUrl).responseString { (response) in
+        Alamofire.request(dataApiUrl).responseString { [self] (response) in
             
             //response.setCharacterEncoding("UTF-8");
            // print(response)
@@ -44,13 +44,14 @@ class DemoTableViewController: UIViewController {
                             self.navTitle = result.title ?? "About"
                             print(self.navTitle)
                                             self.dataTableView.reloadData()
+                            navigationItem.title = "\(navTitle)"
             }
         }
             catch{
                           
                     }
                     }
-        navigationItem.title = "\(navTitle)"
+        self.refreshControl.endRefreshing()
                 }
 
     
@@ -88,6 +89,11 @@ extension DemoTableViewController {
         dataTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         dataTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         dataTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        dataTableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Data ...")
+  
          }
     // setting the row height and backgroundcolor
     func configureTableView() {
@@ -95,6 +101,10 @@ extension DemoTableViewController {
         dataTableView.rowHeight = UITableView.automaticDimension
         dataTableView.estimatedRowHeight = 100
         dataTableView.register(DataTableViewCell.self, forCellReuseIdentifier: "dataCell")
+    }
+    @objc private func refreshData(_ sender: Any) {
+        // Fetch Weather Data
+        loadJsonData()
     }
 }
 
