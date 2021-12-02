@@ -4,89 +4,81 @@
 //
 //  Created by Samrudhi Santaji on 22/11/21.
 //
-//
-//  DemoTableViewController.swift
-//  AssessmentDemo
-//
-//  Created by Samrudhi Santaji on 22/11/21.
-//
 
 import UIKit
-// MARK: - DemoTableViewController
+import Alamofire
+
 class DemoTableViewController: UIViewController {
-    let dataTableView = UITableView()
-    var dta: [DataFile]?
-    var tit: String = ""
-    let dataResource: DataResource = DataResource()
-    let refreshControl = UIRefreshControl()
-    // MARK: - ViewDidLoad
+
+    var tableData = Array<DataFile>()
+    var navTitle : String = ""
+    var dataTableView = UITableView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // fetching data
-        dataResource.getData { [self](dataResponses) in
-            if dataResponses?.rows !=  nil {
-                // fetching the json rows data
-                self.dta = dataResponses?.rows
-                // fetching the json title
-                self.tit = dataResponses!.title
-                print("\(self.tit) in handler")
-                // setting the navigation title and reloading the data in the main thread
-                DispatchQueue.main.async {
-                    self.dataTableView.reloadData()
-                    navigationItem.title = "\(tit)"
-                }
-            }
-        }
-        view.addSubview(dataTableView)
-       // dataTableView.addSubview(refreshControl)
-        // refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
-        // adding the tableview to the view
-        // refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
-        // refreshControl.attributedTitle = NSAttributedString(string: "Fetching Data ...")
- // setting the datasource and delegate
         dataTableView.dataSource = self
         dataTableView.delegate = self
-        // pinning the table view to the view(constraints)
+        dataTableView.register(DataTableViewCell.self, forCellReuseIdentifier: "dataCell")
+        view.addSubview(dataTableView)
         pinTableView()
-        // configuring the table view, setting height and background color
         configureTableView()
+        
+        view.backgroundColor = .red
+      loadJsonData()
     }
-   /* @objc
-    func refreshData(_ sender: Any) {
-        fetchData()
-    }
-    func fetchData() {
-        dataResource.getData { [self](dataResponses) in
-            if dataResponses?.rows !=  nil {
-                // fetching the json rows data
-                self.dta = dataResponses?.rows
-                // fetching the json title
-                self.tit = dataResponses!.title
-                print("\(self.tit) in handler")
-                // setting the navigation title and reloading the data in the main thread
-                DispatchQueue.main.async {
-                    self.dataTableView.reloadData()
-                    navigationItem.title = "\(tit)"
-                }
+    func loadJsonData()
+        {
+        let dataApiUrl = URL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json")!
+           Alamofire.request(dataApiUrl).responseString { (response) in
+            
+            //response.setCharacterEncoding("UTF-8");
+           // print(response)
+         var datam =  response.result.value?.data(using: .utf8)!
+           guard let dat = datam else { return }
+            //print(dat)
+                do{
+                        if(response.result.isSuccess){
+                            print(response.result)
+                            let result: DataResponse = try JSONDecoder().decode(DataResponse.self, from: dat)
+                            //debugPrint(result)
+                                            self.tableData = result.rows ?? []
+                            self.navTitle = result.title ?? "About"
+                            print(self.navTitle)
+                                            self.dataTableView.reloadData()
             }
         }
-        refreshControl.endRefreshing()
-    }*/
+            catch{
+                          
+                    }
+                    }
+        navigationItem.title = "\(navTitle)"
+                }
+
+    
+   
 }
-// MARK: - DemotableViewController extension
-extension DemoTableViewController: UITableViewDataSource, UITableViewDelegate {
-    // setting numbers of rows
+
+extension DemoTableViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // print(self.dta?.count ?? 0)
-        return self.dta?.count ?? 0
+        return tableData.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // swiftlint:disable force_cast
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! DataTableViewCell
-        // swiftlint:enable force_cast
-        cell.datas = self.dta?[indexPath.row]
-     return cell
- }
+        var cell: DataTableViewCell = dataTableView.dequeueReusableCell(withIdentifier: "dataCell") as! DataTableViewCell
+
+        if (tableData.count > 0){
+                    do{
+                        let tableDat = tableData[indexPath.row]
+                        cell.datas = tableData[indexPath.row]
+                        
+                    }catch{
+                          
+                    }
+                      
+    }
+        return cell
+    
+    }
+      
 }
 extension DemoTableViewController {
     // applying constraints to tableview, pinning it to view
@@ -96,10 +88,6 @@ extension DemoTableViewController {
         dataTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         dataTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         dataTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        dataTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        dataTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        dataTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        dataTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
          }
     // setting the row height and backgroundcolor
     func configureTableView() {
@@ -109,3 +97,6 @@ extension DemoTableViewController {
         dataTableView.register(DataTableViewCell.self, forCellReuseIdentifier: "dataCell")
     }
 }
+
+
+

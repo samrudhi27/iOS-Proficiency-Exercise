@@ -13,8 +13,3 @@ public struct DataResponse: Codable {
     let rows: [DataFile]
     let title: String
 }
-// MARK: - Datum
-/*struct DataS: Decodable {
-    let title, image: String
-}
- */

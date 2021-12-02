@@ -7,15 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3D09EAD2756168C006897A8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D09EAC2756168C006897A8 /* Alamofire.framework */; };
 		D3F334A3274B74D300748E71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334A2274B74D300748E71 /* AppDelegate.swift */; };
 		D3F334A5274B74D300748E71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334A4274B74D300748E71 /* SceneDelegate.swift */; };
-		D3F334AA274B74D300748E71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3F334A8274B74D300748E71 /* Main.storyboard */; };
 		D3F334AD274B74D300748E71 /* AssessmentDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3F334AB274B74D300748E71 /* AssessmentDemo.xcdatamodeld */; };
 		D3F334AF274B74D500748E71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3F334AE274B74D500748E71 /* Assets.xcassets */; };
 		D3F334B2274B74D500748E71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3F334B0274B74D500748E71 /* LaunchScreen.storyboard */; };
 		D3F334BD274B74D600748E71 /* AssessmentDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334BC274B74D600748E71 /* AssessmentDemoTests.swift */; };
 		D3F334C8274B74D600748E71 /* AssessmentDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334C7274B74D600748E71 /* AssessmentDemoUITests.swift */; };
-		D3F334DB274B780F00748E71 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334DA274B780F00748E71 /* UIView+Ext.swift */; };
 		D3F334EE274BC5A700748E71 /* DemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334ED274BC5A700748E71 /* DemoTableViewController.swift */; };
 		D3F334F2274BC83200748E71 /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334F1274BC83200748E71 /* DataTableViewCell.swift */; };
 		D3F334F6274C9DDA00748E71 /* DataResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334F5274C9DDA00748E71 /* DataResource.swift */; };
@@ -42,10 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D3D09EAC2756168C006897A8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D3F3349F274B74D300748E71 /* AssessmentDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssessmentDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3F334A2274B74D300748E71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3F334A4274B74D300748E71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D3F334A9274B74D300748E71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D3F334AC274B74D300748E71 /* AssessmentDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AssessmentDemo.xcdatamodel; sourceTree = "<group>"; };
 		D3F334AE274B74D500748E71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3F334B1274B74D500748E71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,7 +55,6 @@
 		D3F334C3274B74D600748E71 /* AssessmentDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssessmentDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3F334C7274B74D600748E71 /* AssessmentDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentDemoUITests.swift; sourceTree = "<group>"; };
 		D3F334C9274B74D600748E71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D3F334DA274B780F00748E71 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		D3F334ED274BC5A700748E71 /* DemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableViewController.swift; sourceTree = "<group>"; };
 		D3F334F1274BC83200748E71 /* DataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
 		D3F334F5274C9DDA00748E71 /* DataResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResource.swift; sourceTree = "<group>"; };
@@ -70,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3D09EAD2756168C006897A8 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3D09EAB2756168C006897A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3D09EAC2756168C006897A8 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D3F33496274B74D300748E71 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +104,7 @@
 				D3F334BB274B74D600748E71 /* AssessmentDemoTests */,
 				D3F334C6274B74D600748E71 /* AssessmentDemoUITests */,
 				D3F334A0274B74D300748E71 /* Products */,
+				D3D09EAB2756168C006897A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,8 +125,6 @@
 				D3F334F4274C9DB500748E71 /* ResourceAccessor */,
 				D3F334DF274B7ABD00748E71 /* Supporting */,
 				D3F334DC274B790600748E71 /* Model */,
-				D3F334D5274B764400748E71 /* Extensions-Utilities */,
-				D3F334A8274B74D300748E71 /* Main.storyboard */,
 				D3F334B3274B74D500748E71 /* Info.plist */,
 				D3F334AB274B74D300748E71 /* AssessmentDemo.xcdatamodeld */,
 				D3F334ED274BC5A700748E71 /* DemoTableViewController.swift */,
@@ -143,14 +149,6 @@
 				D3F334C9274B74D600748E71 /* Info.plist */,
 			);
 			path = AssessmentDemoUITests;
-			sourceTree = "<group>";
-		};
-		D3F334D5274B764400748E71 /* Extensions-Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				D3F334DA274B780F00748E71 /* UIView+Ext.swift */,
-			);
-			path = "Extensions-Utilities";
 			sourceTree = "<group>";
 		};
 		D3F334DC274B790600748E71 /* Model */ = {
@@ -200,6 +198,7 @@
 				D3F3349B274B74D300748E71 /* Sources */,
 				D3F3349C274B74D300748E71 /* Frameworks */,
 				D3F3349D274B74D300748E71 /* Resources */,
+				D3D09EB0275616AA006897A8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -295,7 +294,6 @@
 			files = (
 				D3F334B2274B74D500748E71 /* LaunchScreen.storyboard in Resources */,
 				D3F334AF274B74D500748E71 /* Assets.xcassets in Resources */,
-				D3F334AA274B74D300748E71 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +314,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		D3D09EB0275616AA006897A8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
 		D3F334F3274C012600748E71 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -331,7 +347,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -342,7 +358,6 @@
 			files = (
 				D3F334FB274CA79500748E71 /* LazyImageView.swift in Sources */,
 				D3F334EE274BC5A700748E71 /* DemoTableViewController.swift in Sources */,
-				D3F334DB274B780F00748E71 /* UIView+Ext.swift in Sources */,
 				D3F334A3274B74D300748E71 /* AppDelegate.swift in Sources */,
 				D3F334F2274BC83200748E71 /* DataTableViewCell.swift in Sources */,
 				D3F334AD274B74D300748E71 /* AssessmentDemo.xcdatamodeld in Sources */,
@@ -385,14 +400,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D3F334A8274B74D300748E71 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D3F334A9274B74D300748E71 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D3F334B0274B74D500748E71 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -526,6 +533,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AssessmentDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -544,6 +555,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AssessmentDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
