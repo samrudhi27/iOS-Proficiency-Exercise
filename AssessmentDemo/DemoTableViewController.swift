@@ -66,9 +66,10 @@ extension DemoTableViewController {
         dataTableView.translatesAutoresizingMaskIntoConstraints = false
         dataTableView.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.bottom.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
+           // make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         dataTableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
