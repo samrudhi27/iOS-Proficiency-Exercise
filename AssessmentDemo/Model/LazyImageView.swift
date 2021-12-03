@@ -6,10 +6,10 @@
 //
 
 import UIKit
-// MARK: -LazyImageView
+// MARK: - LazyImageView
 class LazyImageView: UIImageView {
     private let imageCache = NSCache<AnyObject, UIImage>()
-// MARK: -LoadImage
+// MARK: - LoadImage
     func loadImage(fromURL imageURL: URL, placeHolderImage: String?) {
         self.image = UIImage(named: placeHolderImage!)
 
@@ -19,8 +19,7 @@ class LazyImageView: UIImageView {
             return
         }
 
-        DispatchQueue.global().async {
-            [weak self] in
+        DispatchQueue.global().async { [weak self] in
             if let imageData = try? Data(contentsOf: imageURL) {
                 debugPrint("image downloaded from server...")
                 if let image = UIImage(data: imageData) {

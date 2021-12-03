@@ -1,0 +1,4 @@
+excluded:
+- Carthage
+- Pods
+- SwiftLint/Common/3rdPartyLib

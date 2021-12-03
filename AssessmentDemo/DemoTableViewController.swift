@@ -12,7 +12,7 @@ import SnapKit
 class DemoTableViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     var tableData = Array<DataFile>()
-    var navBarTitle : String = ""
+    var navBarTitle: String = ""
     var dataTableView = UITableView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,52 +23,48 @@ class DemoTableViewController: UIViewController {
         pinTableView()
         configureTableView()
     }
-    func loadJsonData()
-        {
+    func loadJsonData() {
         let dataApiUrl = URL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json")!
         Alamofire.request(dataApiUrl).responseString { [self] (response) in
             // converting the from param of decode() to Data(from String)
-         var dataJson =  response.result.value?.data(using: .utf8)!
+            let dataJson =  response.result.value?.data(using: .utf8)!
            guard let JSONData = dataJson else { return }
-                do{
-                        if(response.result.isSuccess){
+                do {
+                        if(response.result.isSuccess) {
                             print(response.result)
                             let result: DataResponse = try JSONDecoder().decode(DataResponse.self, from: JSONData)
-                                            self.tableData = result.rows ?? []
-                            self.navBarTitle = result.title ?? "About"
+                            self.tableData = result.rows
+                            self.navBarTitle = result.title
                             print(self.navBarTitle)
                                             self.dataTableView.reloadData()
                             navigationItem.title = "\(navBarTitle)"
             }
-        }
-            catch{
-                          
+        } catch {
                     }
                     }
         self.refreshControl.endRefreshing()
                 }
 }
 
-extension DemoTableViewController: UITableViewDelegate,UITableViewDataSource{
+extension DemoTableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // swiftlint:disable force_cast
         let cell: DataTableViewCell = dataTableView.dequeueReusableCell(withIdentifier: "dataCell") as! DataTableViewCell
-        if (tableData.count > 0){
+        if (tableData.count > 0) {
                 cell.datas = tableData[indexPath.row]
                     }
+        // swiftlint:enable force_cast
         return cell
     }
-      
 }
 extension DemoTableViewController {
     // applying constraints to tableview, pinning it to view
     func pinTableView() {
         dataTableView.translatesAutoresizingMaskIntoConstraints = false
-        dataTableView.snp.makeConstraints{
-            make in
+        dataTableView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()
             make.leading.equalToSuperview()
@@ -76,7 +72,7 @@ extension DemoTableViewController {
         }
         dataTableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
-        refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+        refreshControl.tintColor = UIColor(red: 0.25, green: 0.72, blue: 0.85, alpha: 1.0)
         refreshControl.attributedTitle = NSAttributedString(string: "Fetching Data ...")
          }
     // setting the row height and backgroundcolor
@@ -91,6 +87,3 @@ extension DemoTableViewController {
         loadJsonData()
     }
 }
-
-
-

@@ -9,17 +9,17 @@ import Foundation
 import Alamofire
 // Downloading and parsing JSON Data
 struct DataResource {
-    // MARK: -GetData
+    // MARK: - GetData
     // getting data and parsing the JSON Data
     func getData(completionHandler: @escaping (DataResponse?) -> ()) {
       let dataApiUrl = URL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json")!
-      URLSession.shared.dataTask(with: dataApiUrl) { (data, response,  error) in
+      URLSession.shared.dataTask(with: dataApiUrl) { (data, _, error) in
             // checking if there is data
             guard let data = data else { return }
                    guard let string = String(data: data, encoding: String.Encoding.isoLatin1) else { return }
                     guard let properData = string.data(using: .utf8, allowLossyConversion: true) else { return }
             // checking if there is any error
-            if error == nil && data != nil {
+            if error == nil {
                 do {
                     let resultJson = try JSONDecoder().decode(DataResponse.self, from: properData)
                     completionHandler(resultJson)
@@ -30,10 +30,5 @@ struct DataResource {
             }
 
         }.resume()
-       
         }
-        
     }
-
-
-
