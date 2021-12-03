@@ -1,34 +1,30 @@
 //
-//  DataResource.swift
-//  AssessmentDemo
+//  APIService.swift
+//  Examples
 //
-//  Created by Samrudhi Santaji on 23/11/21.
+//  Created by Samrudhi Santaji on 03/12/21.
 //
 
 import Foundation
 import Alamofire
-// Downloading and parsing JSON Data
-struct DataResource {
-    // MARK: - GetData
-    // getting data and parsing the JSON Data
-    func getData(completionHandler: @escaping (DataResponse?) -> ()) {
-      let dataApiUrl = URL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json")!
-      URLSession.shared.dataTask(with: dataApiUrl) { (data, _, error) in
-            // checking if there is data
-            guard let data = data else { return }
-                   guard let string = String(data: data, encoding: String.Encoding.isoLatin1) else { return }
-                    guard let properData = string.data(using: .utf8, allowLossyConversion: true) else { return }
-            // checking if there is any error
-            if error == nil {
+
+class APIService {
+    func loadJsonData(completion: @escaping (DataResponse) -> ()) {
+        let dataApiUrl = URL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json")!
+        Alamofire.request(dataApiUrl).responseString { (response) in
+            let datam =  response.result.value?.data(using: .utf8)!
+           guard let dat = datam else { return }
                 do {
-                    let resultJson = try JSONDecoder().decode(DataResponse.self, from: properData)
-                    completionHandler(resultJson)
-
-                } catch let error {
-                    debugPrint(error)
-                }
+                        if(response.result.isSuccess) {
+                            print(response.result)
+                            let result = try JSONDecoder().decode(DataResponse.self, from: dat)
+                            let tableData = result.rows
+                            var navTitle = result.title
+                            print("Hello \(tableData.count)")
+                            completion(result)
             }
-
-        }.resume()
-        }
-    }
+        } catch {
+                    }
+                    }
+          }
+}
