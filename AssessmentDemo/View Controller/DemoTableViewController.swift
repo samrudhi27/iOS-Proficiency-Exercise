@@ -10,8 +10,8 @@ import Alamofire
 import SnapKit
 
 class DemoTableViewController: UIViewController {
-    private var dataViewModel : DataViewModel!
-    private var dataSource : DataTableViewDataSource<DataTableViewCell, DataFile>!
+    private var dataViewModel: DataViewModel!
+    private var dataSource: DataTableViewDataSource<DataTableViewCell, DataFile>!
     private let refreshControl = UIRefreshControl()
     var navBarTitle: String = ""
     var dataTableView = UITableView()
@@ -22,29 +22,24 @@ class DemoTableViewController: UIViewController {
         pinTableView()
         configureTableView()
         callToViewModelForUIUpdate()
-
     }
-    func callToViewModelForUIUpdate(){
+    func callToViewModelForUIUpdate() {
             self.dataViewModel =  DataViewModel()
             self.dataViewModel.bindEmployeeViewModelToController = {
                 self.updateDataSource()
             }
         }
-        
-        func updateDataSource(){
-            
+        func updateDataSource() {
             self.dataSource = DataTableViewDataSource(cellIdentifier: "dataCell", items: self.dataViewModel.tableData.rows, configureCell: { (cell, evm) in
                 cell.datas = evm
             })
-            
             DispatchQueue.main.async { [self] in
-                var navTitle = dataViewModel.tableData.title
+                let navTitle = dataViewModel.tableData.title
                 navigationItem.title = "\(navTitle)"
                 self.dataTableView.dataSource = self.dataSource
                 self.dataTableView.reloadData()
             }
         }
-  
 }
 
 extension DemoTableViewController {
@@ -55,7 +50,6 @@ extension DemoTableViewController {
             make.top.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-           // make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
          }

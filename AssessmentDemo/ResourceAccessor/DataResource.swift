@@ -19,7 +19,6 @@ class APIService {
                             print(response.result)
                             let result = try JSONDecoder().decode(DataResponse.self, from: dat)
                             let tableData = result.rows
-                            var navTitle = result.title
                             print("Hello \(tableData.count)")
                             completion(result)
             }
