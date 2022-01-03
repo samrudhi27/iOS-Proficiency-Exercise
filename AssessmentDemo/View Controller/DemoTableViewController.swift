@@ -10,14 +10,15 @@ import Alamofire
 import SnapKit
 
 class DemoTableViewController: UIViewController {
-    private var dataViewModel: DataViewModel!
-    private var dataSource: DataTableViewDataSource<DataTableViewCell, DataFile>!
-    private let refreshControl = UIRefreshControl()
+    private var dataViewModel = DataViewModel()
+    var items = Array<DataFile>()
     var navBarTitle: String = ""
     var dataTableView = UITableView()
     override func viewDidLoad() {
         super.viewDidLoad()
         dataTableView.register(DataTableViewCell.self, forCellReuseIdentifier: "dataCell")
+        dataTableView.dataSource = self
+        dataTableView.delegate = self
         view.addSubview(dataTableView)
         pinTableView()
         configureTableView()
@@ -30,16 +31,23 @@ class DemoTableViewController: UIViewController {
             }
         }
         func updateDataSource() {
-            self.dataSource = DataTableViewDataSource(cellIdentifier: "dataCell", items: self.dataViewModel.tableData.rows, configureCell: { (cell, evm) in
-                cell.datas = evm
-            })
+             items = self.dataViewModel.tableData.rows
             DispatchQueue.main.async { [self] in
                 let navTitle = dataViewModel.tableData.title
                 navigationItem.title = "\(navTitle)"
-                self.dataTableView.dataSource = self.dataSource
                 self.dataTableView.reloadData()
             }
         }
+}
+extension DemoTableViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as? DataTableViewCell
+        cell?.datas = items[indexPath.row]
+        return cell!
+    }
 }
 
 extension DemoTableViewController {
@@ -58,6 +66,5 @@ extension DemoTableViewController {
         dataTableView.backgroundColor = .gray
         dataTableView.rowHeight = UITableView.automaticDimension
         dataTableView.estimatedRowHeight = 100
-        dataTableView.register(DataTableViewCell.self, forCellReuseIdentifier: "dataCell")
     }
 }

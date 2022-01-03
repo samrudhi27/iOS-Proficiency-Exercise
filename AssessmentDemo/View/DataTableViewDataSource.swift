@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+/*
 class DataTableViewDataSource<CELL: UITableViewCell, T>:  NSObject, UITableViewDataSource, UITableViewDelegate {
     private var cellIdentifier: String!
         private var items: [T]!
@@ -30,3 +30,4 @@ class DataTableViewDataSource<CELL: UITableViewCell, T>:  NSObject, UITableViewD
         return cell
     }
 }
+ */
