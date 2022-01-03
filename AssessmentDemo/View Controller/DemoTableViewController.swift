@@ -8,18 +8,17 @@
 import UIKit
 import Alamofire
 import SnapKit
+import DTTableViewManager
 
-class DemoTableViewController: UIViewController {
+class DemoTableViewController: UIViewController, DTTableViewManageable {
     private var dataViewModel = DataViewModel()
     var items = Array<DataFile>()
     var navBarTitle: String = ""
-    var dataTableView = UITableView()
+    var tableView: UITableView! = UITableView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataTableView.register(DataTableViewCell.self, forCellReuseIdentifier: "dataCell")
-        dataTableView.dataSource = self
-        dataTableView.delegate = self
-        view.addSubview(dataTableView)
+        view.addSubview(tableView)
+        manager.register(DataTableViewCell.self)
         pinTableView()
         configureTableView()
         callToViewModelForUIUpdate()
@@ -32,29 +31,25 @@ class DemoTableViewController: UIViewController {
         }
         func updateDataSource() {
              items = self.dataViewModel.tableData.rows
+            var data = DataFile()
+            for inn in items {
+                data.description = inn.description
+                data.title = inn.title
+                data.imageHref = inn.imageHref
+                manager.memoryStorage.addItem(data)
+            }
             DispatchQueue.main.async { [self] in
                 let navTitle = dataViewModel.tableData.title
                 navigationItem.title = "\(navTitle)"
-                self.dataTableView.reloadData()
+                self.tableView.reloadData()
             }
         }
 }
-extension DemoTableViewController: UITableViewDelegate, UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as? DataTableViewCell
-        cell?.datas = items[indexPath.row]
-        return cell!
-    }
-}
-
 extension DemoTableViewController {
     // applying constraints to tableview, pinning it to view
     func pinTableView() {
-        dataTableView.translatesAutoresizingMaskIntoConstraints = false
-        dataTableView.snp.makeConstraints { make in
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
@@ -63,8 +58,8 @@ extension DemoTableViewController {
          }
     // setting the row height and backgroundcolor
     func configureTableView() {
-        dataTableView.backgroundColor = .gray
-        dataTableView.rowHeight = UITableView.automaticDimension
-        dataTableView.estimatedRowHeight = 100
+        tableView.backgroundColor = .gray
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
     }
 }

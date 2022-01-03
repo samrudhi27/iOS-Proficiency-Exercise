@@ -7,26 +7,9 @@
 
 import UIKit
 import SnapKit
+import DTTableViewManager
 
-class DataTableViewCell: UITableViewCell {
-    var datas: DataFile? {
-        didSet {
-            guard let dataItem = datas else {return}
-            // getting the image from url and displaying in imageview
-            if let imag = dataItem.imageHref {
-                let imageHrefUrl = URL(string: imag)!
-                dataImageView.loadImage(fromURL: imageHrefUrl, placeHolderImage: "af")
-            }
-            // setting the description label
-            if let descriptionData = dataItem.description {
-                descriptionLabel.text = "\(descriptionData)"
-            }
-            // setting the title label
-            if let titleData = dataItem.title {
-                dataTitle.text = "\(titleData)"
-            }
-        }
-    }
+class DataTableViewCell: UITableViewCell, ModelTransfer {
     // description label with style attributes
     var descriptionLabel: UILabel = {
         let label = UILabel()
@@ -103,4 +86,16 @@ class DataTableViewCell: UITableViewCell {
                 make.bottom.equalToSuperview().offset(-10)
             }
         }
+    func update(with model: DataFile) {
+        if let imag = model.imageHref {
+            let imageHrefUrl = URL(string: imag)!
+            dataImageView.loadImage(fromURL: imageHrefUrl, placeHolderImage: "af")
+        }
+        if let descriptionData = model.description {
+            descriptionLabel.text = descriptionData
+        }
+        if let titleData = model.title {
+            dataTitle.text = titleData
+        }
+    }
 }
