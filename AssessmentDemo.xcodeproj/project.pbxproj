@@ -3,15 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D35A95242782D7F200FA0DF7 /* DTModelStorage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35A951B2782CF4000FA0DF7 /* DTModelStorage.xcframework */; };
+		D35A95252782D7F200FA0DF7 /* DTModelStorage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D35A951B2782CF4000FA0DF7 /* DTModelStorage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D35A95272782D7F500FA0DF7 /* DTTableViewManager.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35A951D2782CF4D00FA0DF7 /* DTTableViewManager.xcframework */; };
+		D35A95282782D7F500FA0DF7 /* DTTableViewManager.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D35A951D2782CF4D00FA0DF7 /* DTTableViewManager.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3D09F0F2758D635006897A8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D09F0E2758D635006897A8 /* Alamofire.framework */; };
 		D3D09F132758D63A006897A8 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D09F122758D63A006897A8 /* SnapKit.framework */; };
 		D3D09F1C2759DAAC006897A8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = D3D09F1B2759DAAC006897A8 /* .swiftlint.yml */; };
 		D3D09F202759DE54006897A8 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = D3D09F1F2759DE54006897A8 /* Cartfile */; };
-		D3D09F26275A469E006897A8 /* DataTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D09F25275A469E006897A8 /* DataTableViewDataSource.swift */; };
 		D3D09F28275A4797006897A8 /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D09F27275A4797006897A8 /* DataViewModel.swift */; };
 		D3F334A3274B74D300748E71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334A2274B74D300748E71 /* AppDelegate.swift */; };
 		D3F334A5274B74D300748E71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334A4274B74D300748E71 /* SceneDelegate.swift */; };
@@ -20,12 +23,12 @@
 		D3F334B2274B74D500748E71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3F334B0274B74D500748E71 /* LaunchScreen.storyboard */; };
 		D3F334BD274B74D600748E71 /* AssessmentDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334BC274B74D600748E71 /* AssessmentDemoTests.swift */; };
 		D3F334C8274B74D600748E71 /* AssessmentDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334C7274B74D600748E71 /* AssessmentDemoUITests.swift */; };
-		D3F334EE274BC5A700748E71 /* DemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334ED274BC5A700748E71 /* DemoTableViewController.swift */; };
+		D3F334EE274BC5A700748E71 /* DataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334ED274BC5A700748E71 /* DataTableViewController.swift */; };
 		D3F334F2274BC83200748E71 /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334F1274BC83200748E71 /* DataTableViewCell.swift */; };
 		D3F334F6274C9DDA00748E71 /* DataResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334F5274C9DDA00748E71 /* DataResource.swift */; };
-		D3F334F9274CA08500748E71 /* DataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334F8274CA08500748E71 /* DataResponse.swift */; };
+		D3F334F9274CA08500748E71 /* DataArrayCellObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334F8274CA08500748E71 /* DataArrayCellObject.swift */; };
 		D3F334FB274CA79500748E71 /* LazyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334FA274CA79500748E71 /* LazyImageView.swift */; };
-		D3F334FF274CE00B00748E71 /* DataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334FE274CE00B00748E71 /* DataFile.swift */; };
+		D3F334FF274CE00B00748E71 /* DataCellObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334FE274CE00B00748E71 /* DataCellObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,12 +48,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D35A95262782D7F200FA0DF7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D35A95252782D7F200FA0DF7 /* DTModelStorage.xcframework in Embed Frameworks */,
+				D35A95282782D7F500FA0DF7 /* DTTableViewManager.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		D35A951B2782CF4000FA0DF7 /* DTModelStorage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DTModelStorage.xcframework; sourceTree = "<group>"; };
+		D35A951D2782CF4D00FA0DF7 /* DTTableViewManager.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DTTableViewManager.xcframework; sourceTree = "<group>"; };
 		D3D09F0E2758D635006897A8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D3D09F122758D63A006897A8 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		D3D09F1B2759DAAC006897A8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D3D09F1F2759DE54006897A8 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
-		D3D09F25275A469E006897A8 /* DataTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewDataSource.swift; sourceTree = "<group>"; };
 		D3D09F27275A4797006897A8 /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
 		D3F3349F274B74D300748E71 /* AssessmentDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssessmentDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3F334A2274B74D300748E71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,12 +84,12 @@
 		D3F334C3274B74D600748E71 /* AssessmentDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssessmentDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3F334C7274B74D600748E71 /* AssessmentDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentDemoUITests.swift; sourceTree = "<group>"; };
 		D3F334C9274B74D600748E71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D3F334ED274BC5A700748E71 /* DemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableViewController.swift; sourceTree = "<group>"; };
+		D3F334ED274BC5A700748E71 /* DataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewController.swift; sourceTree = "<group>"; };
 		D3F334F1274BC83200748E71 /* DataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
 		D3F334F5274C9DDA00748E71 /* DataResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResource.swift; sourceTree = "<group>"; };
-		D3F334F8274CA08500748E71 /* DataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponse.swift; sourceTree = "<group>"; };
+		D3F334F8274CA08500748E71 /* DataArrayCellObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataArrayCellObject.swift; sourceTree = "<group>"; };
 		D3F334FA274CA79500748E71 /* LazyImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyImageView.swift; sourceTree = "<group>"; };
-		D3F334FE274CE00B00748E71 /* DataFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFile.swift; sourceTree = "<group>"; };
+		D3F334FE274CE00B00748E71 /* DataCellObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCellObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +99,8 @@
 			files = (
 				D3D09F0F2758D635006897A8 /* Alamofire.framework in Frameworks */,
 				D3D09F132758D63A006897A8 /* SnapKit.framework in Frameworks */,
+				D35A95242782D7F200FA0DF7 /* DTModelStorage.xcframework in Frameworks */,
+				D35A95272782D7F500FA0DF7 /* DTTableViewManager.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +133,7 @@
 		D3D09F29275A49B8006897A8 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D3F334ED274BC5A700748E71 /* DemoTableViewController.swift */,
+				D3F334ED274BC5A700748E71 /* DataTableViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -121,7 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				D3F334F1274BC83200748E71 /* DataTableViewCell.swift */,
-				D3D09F25275A469E006897A8 /* DataTableViewDataSource.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,6 +157,8 @@
 		D3F33496274B74D300748E71 = {
 			isa = PBXGroup;
 			children = (
+				D35A951B2782CF4000FA0DF7 /* DTModelStorage.xcframework */,
+				D35A951D2782CF4D00FA0DF7 /* DTTableViewManager.xcframework */,
 				D3D09F1F2759DE54006897A8 /* Cartfile */,
 				D3D09F1B2759DAAC006897A8 /* .swiftlint.yml */,
 				D3F334A1274B74D300748E71 /* AssessmentDemo */,
@@ -213,8 +235,8 @@
 		D3F334F7274CA06E00748E71 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D3F334F8274CA08500748E71 /* DataResponse.swift */,
-				D3F334FE274CE00B00748E71 /* DataFile.swift */,
+				D3F334F8274CA08500748E71 /* DataArrayCellObject.swift */,
+				D3F334FE274CE00B00748E71 /* DataCellObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -231,6 +253,7 @@
 				D3F3349C274B74D300748E71 /* Frameworks */,
 				D3F3349D274B74D300748E71 /* Resources */,
 				D3D09EB0275616AA006897A8 /* ShellScript */,
+				D35A95262782D7F200FA0DF7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -392,13 +415,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3F334FB274CA79500748E71 /* LazyImageView.swift in Sources */,
-				D3F334EE274BC5A700748E71 /* DemoTableViewController.swift in Sources */,
+				D3F334EE274BC5A700748E71 /* DataTableViewController.swift in Sources */,
 				D3F334A3274B74D300748E71 /* AppDelegate.swift in Sources */,
 				D3F334F2274BC83200748E71 /* DataTableViewCell.swift in Sources */,
-				D3D09F26275A469E006897A8 /* DataTableViewDataSource.swift in Sources */,
 				D3F334AD274B74D300748E71 /* AssessmentDemo.xcdatamodeld in Sources */,
-				D3F334F9274CA08500748E71 /* DataResponse.swift in Sources */,
-				D3F334FF274CE00B00748E71 /* DataFile.swift in Sources */,
+				D3F334F9274CA08500748E71 /* DataArrayCellObject.swift in Sources */,
+				D3F334FF274CE00B00748E71 /* DataCellObject.swift in Sources */,
 				D3F334F6274C9DDA00748E71 /* DataResource.swift in Sources */,
 				D3D09F28275A4797006897A8 /* DataViewModel.swift in Sources */,
 				D3F334A5274B74D300748E71 /* SceneDelegate.swift in Sources */,

@@ -6,8 +6,8 @@
 //
 
 import Foundation
-// MARK: - DataFile
-struct DataFile: Codable {
+// MARK: - Data Cell Object
+struct DataCellObject: Codable {
     // Structure containing each json key
     var title: String?
     var imageHref: String?

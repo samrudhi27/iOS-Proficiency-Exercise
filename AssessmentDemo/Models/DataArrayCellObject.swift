@@ -7,9 +7,9 @@
 
 import Foundation
 
+// MARK: - Json Data Array Cell Object
 // structure to hold json data
-// MARK: - DataResponse
-public struct DataResponse: Codable {
-    let rows: [DataFile]
+public struct DataArrayCellObject: Codable {
+    let rows: [DataCellObject]
     let title: String
 }

@@ -7,10 +7,10 @@
 
 import Foundation
 import Alamofire
-
+// MARK: - Data View Model
 class DataViewModel: NSObject {
     private var apiServices: APIService!
-    private(set) var tableData: DataResponse! {
+    private(set) var tableData: DataArrayCellObject! {
             didSet {
                 self.bindEmployeeViewModelToController()
             }
@@ -21,8 +21,11 @@ class DataViewModel: NSObject {
         self.apiServices = APIService()
         callFuncToGetData()
     }
+    // MARK: - Call Function to Get Data
+    // Function to get JSON Data
     func callFuncToGetData() {
         self.apiServices.loadJsonData { (tableData) in
             self.tableData = tableData
-        }    }
+        }
+    }
 }

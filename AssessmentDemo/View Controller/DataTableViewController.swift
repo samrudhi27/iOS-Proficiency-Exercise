@@ -10,11 +10,12 @@ import Alamofire
 import SnapKit
 import DTTableViewManager
 
-class DemoTableViewController: UIViewController, DTTableViewManageable {
+// MARK: - View Controller
+class DataTableViewController: UIViewController, DTTableViewManageable {
     private var dataViewModel = DataViewModel()
-    var items = Array<DataFile>()
-    var navBarTitle: String = ""
+    var items = Array<DataCellObject>()
     var tableView: UITableView! = UITableView()
+    // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
@@ -23,29 +24,29 @@ class DemoTableViewController: UIViewController, DTTableViewManageable {
         configureTableView()
         callToViewModelForUIUpdate()
     }
+    // MARK: - Call To ViewModel For UI Update
     func callToViewModelForUIUpdate() {
-            self.dataViewModel =  DataViewModel()
-            self.dataViewModel.bindEmployeeViewModelToController = {
-                self.updateDataSource()
-            }
+        self.dataViewModel =  DataViewModel()
+        self.dataViewModel.bindEmployeeViewModelToController = { [weak self] in
+            self?.updateDataSource()
         }
-        func updateDataSource() {
-             items = self.dataViewModel.tableData.rows
-            var data = DataFile()
-            for inn in items {
-                data.description = inn.description
-                data.title = inn.title
-                data.imageHref = inn.imageHref
-                manager.memoryStorage.addItem(data)
-            }
-            DispatchQueue.main.async { [self] in
-                let navTitle = dataViewModel.tableData.title
-                navigationItem.title = "\(navTitle)"
-                self.tableView.reloadData()
-            }
+    }
+    // MARK: - Update Data
+    func updateDataSource() {
+        items = self.dataViewModel.tableData.rows
+        var data = DataCellObject()
+        for item in items {
+            data.description = item.description
+            data.title = item.title
+            data.imageHref = item.imageHref
+            manager.memoryStorage.addItem(data)
         }
+        let navigationItemTitle = dataViewModel.tableData.title
+        navigationItem.title = "\(navigationItemTitle)"
+    }
 }
-extension DemoTableViewController {
+extension DataTableViewController {
+    // MARK: - Pin TableView to View
     // applying constraints to tableview, pinning it to view
     func pinTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +56,8 @@ extension DemoTableViewController {
             make.trailing.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
-         }
+    }
+    // MARK: - Configure Table View
     // setting the row height and backgroundcolor
     func configureTableView() {
         tableView.backgroundColor = .gray

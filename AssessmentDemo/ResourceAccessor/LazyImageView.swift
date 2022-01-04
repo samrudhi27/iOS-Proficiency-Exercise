@@ -4,21 +4,21 @@
 //
 //  Created by Samrudhi Santaji on 23/11/21.
 //
-
 import UIKit
 // MARK: - LazyImageView
 class LazyImageView: UIImageView {
     private let imageCache = NSCache<AnyObject, UIImage>()
 // MARK: - LoadImage
+    // function to load image from cache or server
     func loadImage(fromURL imageURL: URL, placeHolderImage: String?) {
         self.image = UIImage(named: placeHolderImage!)
-
+        // checking if image is in the cache and loading from cache
         if let cachedImage = self.imageCache.object(forKey: imageURL as AnyObject) {
             debugPrint("image loaded from cache for =\(imageURL)")
             self.image = cachedImage
             return
         }
-
+        // downloading from server if the image is not in the cache
         DispatchQueue.global().async { [weak self] in
             if let imageData = try? Data(contentsOf: imageURL) {
                 debugPrint("image downloaded from server...")
