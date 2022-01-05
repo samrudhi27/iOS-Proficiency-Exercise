@@ -18,7 +18,6 @@
 		D3D09F28275A4797006897A8 /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D09F27275A4797006897A8 /* DataViewModel.swift */; };
 		D3F334A3274B74D300748E71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334A2274B74D300748E71 /* AppDelegate.swift */; };
 		D3F334A5274B74D300748E71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334A4274B74D300748E71 /* SceneDelegate.swift */; };
-		D3F334AD274B74D300748E71 /* AssessmentDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3F334AB274B74D300748E71 /* AssessmentDemo.xcdatamodeld */; };
 		D3F334AF274B74D500748E71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3F334AE274B74D500748E71 /* Assets.xcassets */; };
 		D3F334B2274B74D500748E71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3F334B0274B74D500748E71 /* LaunchScreen.storyboard */; };
 		D3F334BD274B74D600748E71 /* AssessmentDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F334BC274B74D600748E71 /* AssessmentDemoTests.swift */; };
@@ -74,7 +73,6 @@
 		D3F3349F274B74D300748E71 /* AssessmentDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssessmentDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3F334A2274B74D300748E71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3F334A4274B74D300748E71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D3F334AC274B74D300748E71 /* AssessmentDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AssessmentDemo.xcdatamodel; sourceTree = "<group>"; };
 		D3F334AE274B74D500748E71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3F334B1274B74D500748E71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3F334B3274B74D500748E71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,28 +128,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D3D09F29275A49B8006897A8 /* View Controller */ = {
+		D3D09F29275A49B8006897A8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				D3F334ED274BC5A700748E71 /* DataTableViewController.swift */,
 			);
-			path = "View Controller";
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		D3D09F2A275A49DE006897A8 /* View */ = {
+		D3D09F2A275A49DE006897A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				D3F334F1274BC83200748E71 /* DataTableViewCell.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		D3D09F2B275A4A05006897A8 /* View Model */ = {
+		D3D09F2B275A4A05006897A8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				D3D09F27275A4797006897A8 /* DataViewModel.swift */,
 			);
-			path = "View Model";
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		D3F33496274B74D300748E71 = {
@@ -182,14 +180,13 @@
 		D3F334A1274B74D300748E71 /* AssessmentDemo */ = {
 			isa = PBXGroup;
 			children = (
-				D3D09F2B275A4A05006897A8 /* View Model */,
-				D3D09F2A275A49DE006897A8 /* View */,
-				D3D09F29275A49B8006897A8 /* View Controller */,
-				D3F334F7274CA06E00748E71 /* Models */,
+				D3D09F2B275A4A05006897A8 /* ViewModels */,
+				D3D09F2A275A49DE006897A8 /* Views */,
+				D3D09F29275A49B8006897A8 /* Controllers */,
+				D3F334F7274CA06E00748E71 /* Model */,
 				D3F334F4274C9DB500748E71 /* ResourceAccessor */,
 				D3F334DF274B7ABD00748E71 /* Supporting */,
 				D3F334B3274B74D500748E71 /* Info.plist */,
-				D3F334AB274B74D300748E71 /* AssessmentDemo.xcdatamodeld */,
 			);
 			path = AssessmentDemo;
 			sourceTree = "<group>";
@@ -232,13 +229,13 @@
 			path = ResourceAccessor;
 			sourceTree = "<group>";
 		};
-		D3F334F7274CA06E00748E71 /* Models */ = {
+		D3F334F7274CA06E00748E71 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				D3F334F8274CA08500748E71 /* DataArrayCellObject.swift */,
 				D3F334FE274CE00B00748E71 /* DataCellObject.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,7 +415,6 @@
 				D3F334EE274BC5A700748E71 /* DataTableViewController.swift in Sources */,
 				D3F334A3274B74D300748E71 /* AppDelegate.swift in Sources */,
 				D3F334F2274BC83200748E71 /* DataTableViewCell.swift in Sources */,
-				D3F334AD274B74D300748E71 /* AssessmentDemo.xcdatamodeld in Sources */,
 				D3F334F9274CA08500748E71 /* DataArrayCellObject.swift in Sources */,
 				D3F334FF274CE00B00748E71 /* DataCellObject.swift in Sources */,
 				D3F334F6274C9DDA00748E71 /* DataResource.swift in Sources */,
@@ -750,19 +746,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		D3F334AB274B74D300748E71 /* AssessmentDemo.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D3F334AC274B74D300748E71 /* AssessmentDemo.xcdatamodel */,
-			);
-			currentVersion = D3F334AC274B74D300748E71 /* AssessmentDemo.xcdatamodel */;
-			path = AssessmentDemo.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = D3F33497274B74D300748E71 /* Project object */;
 }
