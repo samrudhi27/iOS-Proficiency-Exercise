@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D35A95242782D7F200FA0DF7 /* DTModelStorage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35A951B2782CF4000FA0DF7 /* DTModelStorage.xcframework */; };
-		D35A95252782D7F200FA0DF7 /* DTModelStorage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D35A951B2782CF4000FA0DF7 /* DTModelStorage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D35A95272782D7F500FA0DF7 /* DTTableViewManager.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35A951D2782CF4D00FA0DF7 /* DTTableViewManager.xcframework */; };
-		D35A95282782D7F500FA0DF7 /* DTTableViewManager.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D35A951D2782CF4D00FA0DF7 /* DTTableViewManager.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D35A954627869F5200FA0DF7 /* DTModelStorage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35A954227869F4100FA0DF7 /* DTModelStorage.xcframework */; };
+		D35A954727869F5200FA0DF7 /* DTModelStorage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D35A954227869F4100FA0DF7 /* DTModelStorage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D35A954827869F5400FA0DF7 /* DTTableViewManager.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35A954427869F5000FA0DF7 /* DTTableViewManager.xcframework */; };
+		D35A954927869F5400FA0DF7 /* DTTableViewManager.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D35A954427869F5000FA0DF7 /* DTTableViewManager.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3D09F0F2758D635006897A8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D09F0E2758D635006897A8 /* Alamofire.framework */; };
 		D3D09F132758D63A006897A8 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D09F122758D63A006897A8 /* SnapKit.framework */; };
 		D3D09F1C2759DAAC006897A8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = D3D09F1B2759DAAC006897A8 /* .swiftlint.yml */; };
@@ -54,8 +54,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D35A95252782D7F200FA0DF7 /* DTModelStorage.xcframework in Embed Frameworks */,
-				D35A95282782D7F500FA0DF7 /* DTTableViewManager.xcframework in Embed Frameworks */,
+				D35A954727869F5200FA0DF7 /* DTModelStorage.xcframework in Embed Frameworks */,
+				D35A954927869F5400FA0DF7 /* DTTableViewManager.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,8 +63,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D35A951B2782CF4000FA0DF7 /* DTModelStorage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DTModelStorage.xcframework; sourceTree = "<group>"; };
-		D35A951D2782CF4D00FA0DF7 /* DTTableViewManager.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DTTableViewManager.xcframework; sourceTree = "<group>"; };
+		D35A954227869F4100FA0DF7 /* DTModelStorage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DTModelStorage.xcframework; sourceTree = "<group>"; };
+		D35A954427869F5000FA0DF7 /* DTTableViewManager.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = DTTableViewManager.xcframework; sourceTree = "<group>"; };
 		D3D09F0E2758D635006897A8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D3D09F122758D63A006897A8 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		D3D09F1B2759DAAC006897A8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -97,8 +97,8 @@
 			files = (
 				D3D09F0F2758D635006897A8 /* Alamofire.framework in Frameworks */,
 				D3D09F132758D63A006897A8 /* SnapKit.framework in Frameworks */,
-				D35A95242782D7F200FA0DF7 /* DTModelStorage.xcframework in Frameworks */,
-				D35A95272782D7F500FA0DF7 /* DTTableViewManager.xcframework in Frameworks */,
+				D35A954627869F5200FA0DF7 /* DTModelStorage.xcframework in Frameworks */,
+				D35A954827869F5400FA0DF7 /* DTTableViewManager.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,8 +155,8 @@
 		D3F33496274B74D300748E71 = {
 			isa = PBXGroup;
 			children = (
-				D35A951B2782CF4000FA0DF7 /* DTModelStorage.xcframework */,
-				D35A951D2782CF4D00FA0DF7 /* DTTableViewManager.xcframework */,
+				D35A954427869F5000FA0DF7 /* DTTableViewManager.xcframework */,
+				D35A954227869F4100FA0DF7 /* DTModelStorage.xcframework */,
 				D3D09F1F2759DE54006897A8 /* Cartfile */,
 				D3D09F1B2759DAAC006897A8 /* .swiftlint.yml */,
 				D3F334A1274B74D300748E71 /* AssessmentDemo */,
