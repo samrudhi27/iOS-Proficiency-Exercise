@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+
 // MARK: - Data View Model
 class DataViewModel: NSObject {
     private var apiServices: APIService!
