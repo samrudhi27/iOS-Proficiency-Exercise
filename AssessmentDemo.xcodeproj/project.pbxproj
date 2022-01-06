@@ -128,28 +128,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D3D09F29275A49B8006897A8 /* Controllers */ = {
+		D3D09F29275A49B8006897A8 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				D3F334ED274BC5A700748E71 /* DataTableViewController.swift */,
 			);
-			path = Controllers;
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
-		D3D09F2A275A49DE006897A8 /* Views */ = {
+		D3D09F2A275A49DE006897A8 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				D3F334F1274BC83200748E71 /* DataTableViewCell.swift */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
-		D3D09F2B275A4A05006897A8 /* ViewModels */ = {
+		D3D09F2B275A4A05006897A8 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
 				D3D09F27275A4797006897A8 /* DataViewModel.swift */,
 			);
-			path = ViewModels;
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		D3F33496274B74D300748E71 = {
@@ -180,10 +180,10 @@
 		D3F334A1274B74D300748E71 /* AssessmentDemo */ = {
 			isa = PBXGroup;
 			children = (
-				D3D09F2B275A4A05006897A8 /* ViewModels */,
-				D3D09F2A275A49DE006897A8 /* Views */,
-				D3D09F29275A49B8006897A8 /* Controllers */,
-				D3F334F7274CA06E00748E71 /* Model */,
+				D3D09F2B275A4A05006897A8 /* View Model */,
+				D3D09F2A275A49DE006897A8 /* View */,
+				D3D09F29275A49B8006897A8 /* View Controller */,
+				D3F334F7274CA06E00748E71 /* Models */,
 				D3F334F4274C9DB500748E71 /* ResourceAccessor */,
 				D3F334DF274B7ABD00748E71 /* Supporting */,
 				D3F334B3274B74D500748E71 /* Info.plist */,
@@ -229,13 +229,13 @@
 			path = ResourceAccessor;
 			sourceTree = "<group>";
 		};
-		D3F334F7274CA06E00748E71 /* Model */ = {
+		D3F334F7274CA06E00748E71 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				D3F334F8274CA08500748E71 /* DataArrayCellObject.swift */,
 				D3F334FE274CE00B00748E71 /* DataCellObject.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
